@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>R. Ramalingam & Associates | Chartered Accountants</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink:       #0e0e0e;
+      --ink-soft:  #2a2a2a;
+      --gold:      #b8973a;
+      --gold-lt:   #d4af5a;
+      --cream:     #f7f4ef;
+      --cream-dk:  #ede8e0;
+      --white:     #ffffff;
+      --muted:     #6b6560;
+      --border:    rgba(184,151,58,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw;
+      height: 72px;
+      background: rgba(14,14,14,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(184,151,58,0.12);
+    }
+
+    .nav-brand {
+      display: flex; align-items: center; gap: 14px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 38px; height: 38px;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+    .nav-logo-icon span { font-family: 'Cormorant Garamond', serif; color: #0e0e0e; font-size: 18px; font-weight: 600; }
+    .nav-brand-text { line-height: 1.1; }
+    .nav-brand-text strong { display: block; color: var(--white); font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; letter-spacing: 0.02em; }
+    .nav-brand-text small { color: var(--gold); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 300; }
+
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold-lt); }
+    .nav-cta { background: var(--gold); color: var(--ink) !important; padding: 9px 22px; font-weight: 500 !important; letter-spacing: 0.08em !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--gold-lt) !important; }
+
+    /* ─── HERO ────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--ink);
+      display: grid; grid-template-columns: 1fr 1fr;
+      position: relative; overflow: hidden;
+    }
+
+    .hero-bg-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(184,151,58,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,151,58,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-bg-glow {
+      position: absolute; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(184,151,58,0.12) 0%, transparent 70%);
+      top: -100px; right: -100px; pointer-events: none;
+    }
+
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 5vw 80px 8vw;
+      position: relative; z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
+    }
+    .hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+    .hero-eyebrow span { color: var(--gold); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-family: 'DM Mono', monospace; }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 5.5vw, 84px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero h1 strong { font-weight: 600; display: block; }
+
+    .hero-desc {
+      color: rgba(255,255,255,0.5);
+      font-size: 16px; line-height: 1.75;
+      max-width: 420px; margin-bottom: 48px;
+      font-weight: 300;
+    }
+
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold); color: var(--ink);
+      padding: 15px 36px; font-size: 13px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 500; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: all 0.25s;
+    }
+    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7);
+      padding: 15px 36px; font-size: 13px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 400; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: all 0.25s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-stats {
+      display: flex; gap: 40px; margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px; font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
+
+    .hero-right {
+      position: relative; display: flex; align-items: flex-end; justify-content: center;
+      padding: 80px 5vw 0;
+    }
+    .hero-img-frame {
+      width: 100%; max-width: 460px;
+      position: relative;
+    }
+    .hero-img-frame::before {
+      content: ''; position: absolute;
+      top: -20px; right: -20px;
+      width: 100%; height: 100%;
+      border: 1px solid var(--gold);
+      opacity: 0.3; z-index: 0;
+    }
+    .hero-img-frame img {
+      width: 100%; height: 520px; object-fit: cover;
+      display: block; position: relative; z-index: 1;
+      filter: grayscale(20%) contrast(1.05);
+    }
+    .hero-img-badge {
+      position: absolute; bottom: 30px; left: -30px; z-index: 2;
+      background: var(--gold); padding: 18px 24px;
+    }
+    .hero-img-badge strong { display: block; font-size: 28px; font-family: 'Cormorant Garamond', serif; color: var(--ink); line-height: 1; }
+    .hero-img-badge span { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); opacity: 0.7; }
+
+    /* ─── TICKER ──────────────────────────── */
+    .ticker-wrap {
+      background: var(--gold); overflow: hidden;
+      padding: 14px 0; position: relative;
+    }
+    .ticker-track {
+      display: flex; gap: 0;
+      animation: ticker 28s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 28px;
+      padding: 0 28px;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink); font-weight: 500;
+    }
+    .ticker-dot { width: 4px; height: 4px; background: var(--ink); border-radius: 50%; opacity: 0.5; flex-shrink: 0; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ─── SECTION SHELL ───────────────────── */
+    section { padding: 100px 8vw; }
+    .section-tag {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    }
+    .section-tag-line { width: 32px; height: 1px; background: var(--gold); }
+    .section-tag span { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-family: 'DM Mono', monospace; }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 3.5vw, 56px);
+      font-weight: 300; line-height: 1.1;
+      color: var(--ink); margin-bottom: 16px;
+    }
+    .section-title em { font-style: italic; }
+    .section-sub { color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 520px; font-weight: 300; }
+
+    /* ─── ABOUT ───────────────────────────── */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 64px; }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap img { width: 100%; height: 480px; object-fit: cover; display: block; }
+    .about-img-wrap::after {
+      content: ''; position: absolute;
+      bottom: -16px; left: 16px;
+      width: 100%; height: 100%;
+      border: 1px solid var(--gold); opacity: 0.25; z-index: -1;
+    }
+    .about-pill {
+      position: absolute; top: 28px; right: -20px;
+      background: var(--ink); color: var(--white);
+      padding: 16px 22px; z-index: 2;
+    }
+    .about-pill strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold); }
+    .about-pill span { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; }
+
+    .about-content p { color: var(--muted); line-height: 1.85; margin-bottom: 20px; font-size: 15px; font-weight: 300; }
+    .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .about-value {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 16px; border: 1px solid var(--cream-dk);
+    }
+    .about-value-icon { color: var(--gold); font-size: 14px; margin-top: 3px; flex-shrink: 0; }
+    .about-value strong { display: block; font-size: 13px; font-weight: 500; margin-bottom: 3px; }
+    .about-value span { font-size: 12px; color: var(--muted); }
+
+    /* ─── SERVICES ────────────────────────── */
+    #services { background: var(--ink); }
+    #services .section-title { color: var(--white); }
+    #services .section-sub { color: rgba(255,255,255,0.45); }
+    .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.05); }
+    .service-card {
+      background: var(--ink);
+      padding: 44px 36px;
+      border: 1px solid rgba(184,151,58,0.08);
+      transition: all 0.3s;
+      cursor: default;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 2px; height: 0;
+      background: var(--gold);
+      transition: height 0.4s ease;
+    }
+    .service-card:hover { background: rgba(184,151,58,0.04); border-color: rgba(184,151,58,0.2); }
+    .service-card:hover::before { height: 100%; }
+    .service-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px; color: var(--gold); opacity: 0.5;
+      letter-spacing: 0.1em; margin-bottom: 24px;
+    }
+    .service-icon {
+      width: 48px; height: 48px; margin-bottom: 24px;
+      background: rgba(184,151,58,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 20px;
+    }
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 400;
+      color: var(--white); margin-bottom: 14px; line-height: 1.2;
+    }
+    .service-card p { color: rgba(255,255,255,0.4); font-size: 13.5px; line-height: 1.7; font-weight: 300; }
+    .service-card-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--gold); font-size: 12px; letter-spacing: 0.1em;
+      text-transform: uppercase; text-decoration: none; margin-top: 28px;
+      transition: gap 0.2s;
+    }
+    .service-card-link:hover { gap: 14px; }
+
+    /* ─── WHY US ──────────────────────────── */
+    #why { background: var(--cream); }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 64px; }
+    .why-list { display: flex; flex-direction: column; gap: 0; }
+    .why-item {
+      display: flex; gap: 24px; align-items: flex-start;
+      padding: 28px 0; border-bottom: 1px solid var(--cream-dk);
+    }
+    .why-item:last-child { border-bottom: none; }
+    .why-count {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px; color: var(--gold);
+      font-weight: 600; letter-spacing: 0.05em;
+      flex-shrink: 0; padding-top: 4px;
+    }
+    .why-item h4 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
+    .why-item p { font-size: 13.5px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+    .why-visual {
+      background: var(--ink); padding: 52px 44px;
+      position: relative;
+    }
+    .why-visual::before {
+      content: '';
+      position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px;
+      border: 1px solid var(--gold); opacity: 0.15; z-index: -1;
+    }
+    .why-visual-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 300; font-style: italic;
+      color: var(--white); line-height: 1.4; margin-bottom: 32px;
+    }
+    .why-visual-quote em { color: var(--gold); }
+    .why-pillars { display: flex; flex-direction: column; gap: 16px; }
+    .why-pillar {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px; background: rgba(255,255,255,0.04);
+      border-left: 2px solid var(--gold);
+    }
+    .why-pillar-icon { color: var(--gold); font-size: 18px; width: 24px; text-align: center; }
+    .why-pillar strong { display: block; color: var(--white); font-size: 13px; font-weight: 500; }
+    .why-pillar span { color: rgba(255,255,255,0.4); font-size: 12px; }
+
+    /* ─── KNOWLEDGE BANK ──────────────────── */
+    #knowledge { background: var(--white); }
+    .kb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 56px; }
+    .kb-card {
+      background: var(--cream);
+      padding: 32px 28px;
+      text-align: center;
+      transition: all 0.25s;
+      cursor: default;
+    }
+    .kb-card:hover { background: var(--ink); }
+    .kb-card:hover .kb-icon { background: rgba(184,151,58,0.15); color: var(--gold); }
+    .kb-card:hover .kb-title { color: var(--white); }
+    .kb-card:hover .kb-desc { color: rgba(255,255,255,0.4); }
+    .kb-icon {
+      width: 56px; height: 56px; margin: 0 auto 20px;
+      background: rgba(184,151,58,0.1); display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 22px;
+      transition: all 0.25s;
+    }
+    .kb-title { font-size: 15px; font-weight: 500; margin-bottom: 8px; transition: color 0.25s; }
+    .kb-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; transition: color 0.25s; }
+
+    /* ─── TESTIMONIALS / TRUST ────────────── */
+    #trust { background: var(--cream-dk); }
+    .trust-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    .trust-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3vw, 42px);
+      font-weight: 300; font-style: italic;
+      line-height: 1.4; color: var(--ink);
+      margin: 40px 0 28px;
+    }
+    .trust-quote em { color: var(--gold); font-style: normal; }
+    .trust-attrs { color: var(--muted); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .trust-logos { display: flex; justify-content: center; align-items: center; gap: 48px; margin-top: 64px; flex-wrap: wrap; }
+    .trust-logo-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .trust-logo-icon { width: 52px; height: 52px; border-radius: 50%; background: var(--white); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .trust-logo-label { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ─── CONTACT ─────────────────────────── */
+    #contact { background: var(--ink); }
+    #contact .section-title { color: var(--white); }
+    #contact .section-sub { color: rgba(255,255,255,0.4); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 64px; }
+    .contact-info { display: flex; flex-direction: column; gap: 36px; }
+    .contact-item { display: flex; gap: 20px; }
+    .contact-item-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(184,151,58,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 16px;
+    }
+    .contact-item strong { display: block; color: var(--white); font-size: 13px; font-weight: 500; margin-bottom: 4px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .contact-item span { color: rgba(255,255,255,0.45); font-size: 14px; line-height: 1.6; }
+    .contact-hours { margin-top: 4px; }
+    .contact-hours span { display: block; color: rgba(255,255,255,0.45); font-size: 13px; }
+    .contact-hours .open { color: #4ade80; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .form-field input, .form-field select, .form-field textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white); padding: 14px 16px;
+      font-family: 'DM Sans', sans-serif; font-size: 14px;
+      outline: none; transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--gold); }
+    .form-field textarea { resize: vertical; min-height: 120px; }
+    .form-field select option { background: var(--ink-soft); }
+    .form-submit {
+      background: var(--gold); color: var(--ink); border: none;
+      padding: 16px 40px; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 500; cursor: pointer; align-self: flex-start;
+      display: flex; align-items: center; gap: 10px;
+      transition: all 0.25s;
+    }
+    .form-submit:hover { background: var(--gold-lt); transform: translateY(-1px); }
+
+    /* ─── FOOTER ──────────────────────────── */
+    footer {
+      background: #070707; padding: 48px 8vw 28px;
+      border-top: 1px solid rgba(184,151,58,0.12);
+    }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; flex-wrap: wrap; gap: 32px; }
+    .footer-brand strong { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--white); display: block; margin-bottom: 4px; }
+    .footer-brand span { font-size: 11px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; }
+    .footer-brand p { color: rgba(255,255,255,0.3); font-size: 13px; margin-top: 12px; max-width: 280px; line-height: 1.6; }
+    .footer-col h5 { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer-col a { display: block; color: rgba(255,255,255,0.4); font-size: 13px; text-decoration: none; margin-bottom: 9px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-bottom p { color: rgba(255,255,255,0.2); font-size: 12px; }
+    .footer-socials { display: flex; gap: 14px; }
+    .footer-social { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-size: 13px; text-decoration: none; transition: all 0.2s; }
+    .footer-social:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ─── ANIMATIONS ──────────────────────── */
+    .fade-up {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ──────────────────────── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .kb-grid { grid-template-columns: 1fr 1fr; }
+      .services-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-logo-icon"><span>R</span></div>
+    <div class="nav-brand-text">
+      <strong>R. Ramalingam & Associates</strong>
+      <small>Chartered Accountants · Est. 2004</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#knowledge">Knowledge</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-glow"></div>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span>Chartered Accountants · Chennai, India</span>
+    </div>
+    <h1>
+      <em>Precision.</em>
+      <strong>Integrity.</strong>
+      Excellence.
+    </h1>
+    <p class="hero-desc">
+      R. Ramalingam & Associates delivers world-class financial advisory, tax consultancy, and audit services to businesses and individuals across India since 2004.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">
+        Explore Services <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="#contact" class="btn-outline">
+        Schedule a Meeting
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">20+</div>
+        <div class="hero-stat-label">Years of Service</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">500+</div>
+        <div class="hero-stat-label">Clients Served</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">6</div>
+        <div class="hero-stat-label">Practice Areas</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-img-frame">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=80" alt="Professional Advisory" />
+      <div class="hero-img-badge">
+        <strong>2004</strong>
+        <span>Established</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <!-- repeated for seamless loop -->
+    <span class="ticker-item">Direct Tax <span class="ticker-dot"></span></span>
+    <span class="ticker-item">GST & Indirect Tax <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Audit & Assurance <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Corporate Secretarial <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Risk Advisory <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Business Advisory <span class="ticker-dot"></span></span>
+    <span class="ticker-item">FEMA Compliance <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Company Law <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Direct Tax <span class="ticker-dot"></span></span>
+    <span class="ticker-item">GST & Indirect Tax <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Audit & Assurance <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Corporate Secretarial <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Risk Advisory <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Business Advisory <span class="ticker-dot"></span></span>
+    <span class="ticker-item">FEMA Compliance <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Company Law <span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap fade-up">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=80&face" alt="Professional Team" />
+      <div class="about-pill">
+        <strong>Premier</strong>
+        <span>CA Firm</span>
+      </div>
+    </div>
+    <div class="fade-up" style="transition-delay:0.15s">
+      <div class="section-tag">
+        <div class="section-tag-line"></div>
+        <span>Who We Are</span>
+      </div>
+      <h2 class="section-title">Built on <em>trust</em>,<br>driven by results</h2>
+      <div class="about-content">
+        <p>R. Ramalingam & Associates, Chartered Accountants, is a premier professional services firm established in 2004, headquartered in Chennai, India. We are committed to delivering excellence through a client-first approach across all our practice areas.</p>
+        <p>Our mission is to empower businesses with comprehensive financial strategies, ensuring compliance, growth, and long-term value creation. We serve corporates, LLPs, firms, individuals, NRIs, and foreign nationals across India.</p>
+      </div>
+      <div class="about-values">
+        <div class="about-value">
+          <i class="fas fa-shield-halved about-value-icon"></i>
+          <div>
+            <strong>Integrity First</strong>
+            <span>Ethical practice in every engagement</span>
+          </div>
+        </div>
+        <div class="about-value">
+          <i class="fas fa-bullseye about-value-icon"></i>
+          <div>
+            <strong>Precision</strong>
+            <span>Meticulous attention to every detail</span>
+          </div>
+        </div>
+        <div class="about-value">
+          <i class="fas fa-handshake about-value-icon"></i>
+          <div>
+            <strong>Partnership</strong>
+            <span>Long-term relationships with clients</span>
+          </div>
+        </div>
+        <div class="about-value">
+          <i class="fas fa-lightbulb about-value-icon"></i>
+          <div>
+            <strong>Innovation</strong>
+            <span>Modern solutions for complex needs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-tag">
+        <div class="section-tag-line"></div>
+        <span>What We Do</span>
+      </div>
+      <h2 class="section-title" style="color:white">Our <em>Practice</em> Areas</h2>
+    </div>
+    <p class="section-sub" style="font-size:14px">Comprehensive financial and legal advisory tailored to your needs.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-num">01 — Direct Tax</div>
+      <div class="service-icon"><i class="fas fa-landmark"></i></div>
+      <h3>Direct Tax Consultancy</h3>
+      <p>Comprehensive income tax advisory and compliance services for corporates, LLPs, individuals, NRIs, and foreign nationals. Strategic tax planning and litigation support.</p>
+      <a href="#contact" class="service-card-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.1s">
+      <div class="service-num">02 — Indirect Tax</div>
+      <div class="service-icon"><i class="fas fa-receipt"></i></div>
+      <h3>Indirect Tax & GST Services</h3>
+      <p>End-to-end GST advisory, registration, compliance, return filing, refunds, and litigation support. Expertise in customs, excise, and service tax matters.</p>
+      <a href="#contact" class="service-card-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.2s">
+      <div class="service-num">03 — Audit</div>
+      <div class="service-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+      <h3>Audit & Assurance</h3>
+      <p>Statutory, internal, tax, and management audits designed to meet regulatory requirements and deliver actionable insights that strengthen your organisation.</p>
+      <a href="#contact" class="service-card-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.1s">
+      <div class="service-num">04 — Risk</div>
+      <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+      <h3>Risk Advisory Services</h3>
+      <p>Identifying, assessing, and mitigating business, financial, and operational risks. We build robust frameworks so you're always a step ahead of uncertainty.</p>
+      <a href="#contact" class="service-card-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.2s">
+      <div class="service-num">05 — Corporate</div>
+      <div class="service-icon"><i class="fas fa-building-columns"></i></div>
+      <h3>Corporate & Secretarial</h3>
+      <p>Incorporation, ROC filings, company law compliance, board support, and corporate restructuring. Full-service secretarial support for Companies Act 2013 compliance.</p>
+      <a href="#contact" class="service-card-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.3s">
+      <div class="service-num">06 — Advisory</div>
+      <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+      <h3>Business Advisory</h3>
+      <p>Strategic, financial, and operational advisory tailored to your growth journey. Valuations, M&A support, FEMA compliance, and CFO services for evolving businesses.</p>
+      <a href="#contact" class="service-card-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-grid">
+    <div class="fade-up">
+      <div class="section-tag">
+        <div class="section-tag-line"></div>
+        <span>Why Choose Us</span>
+      </div>
+      <h2 class="section-title">The <em>difference</em><br>that matters</h2>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-count">01</div>
+          <div>
+            <h4>20+ Years of Proven Expertise</h4>
+            <p>Founded in 2004, our depth of experience across tax, audit, and advisory means every client benefits from decades of accumulated knowledge.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-count">02</div>
+          <div>
+            <h4>Multi-disciplinary Team</h4>
+            <p>Chartered Accountants, tax lawyers, and domain specialists working in concert to deliver holistic, integrated solutions for complex mandates.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-count">03</div>
+          <div>
+            <h4>Client-Centric Philosophy</h4>
+            <p>We invest time to understand your business deeply, ensuring every recommendation is tailored, practical, and commercially sound.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-count">04</div>
+          <div>
+            <h4>Pan-India Compliance Capability</h4>
+            <p>From Chennai to every corner of India — we handle state-specific tax, RERA, VAT, and regulatory requirements with equal depth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual fade-up" style="transition-delay:0.2s">
+      <div class="why-visual-quote">
+        "Your financial success is not just our mandate — it is our <em>commitment</em>."
+      </div>
+      <div class="why-pillars">
+        <div class="why-pillar">
+          <i class="fas fa-certificate why-pillar-icon"></i>
+          <div>
+            <strong>ICAI Registered</strong>
+            <span>Fully certified Chartered Accountants</span>
+          </div>
+        </div>
+        <div class="why-pillar">
+          <i class="fas fa-clock why-pillar-icon"></i>
+          <div>
+            <strong>Mon–Sat · 9:30 AM – 7:00 PM</strong>
+            <span>Accessible when you need us most</span>
+          </div>
+        </div>
+        <div class="why-pillar">
+          <i class="fas fa-map-marker-alt why-pillar-icon"></i>
+          <div>
+            <strong>Chennai, Tamil Nadu</strong>
+            <span>Serving clients across India</span>
+          </div>
+        </div>
+        <div class="why-pillar">
+          <i class="fas fa-database why-pillar-icon"></i>
+          <div>
+            <strong>Knowledge Bank Portal</strong>
+            <span>Calculators, acts, rules & bulletins</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KNOWLEDGE BANK -->
+<section id="knowledge">
+  <div class="section-tag">
+    <div class="section-tag-line"></div>
+    <span>Resources</span>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px">
+    <h2 class="section-title">Knowledge <em>Bank</em></h2>
+    <p class="section-sub" style="font-size:14px;margin-bottom:0">Freely accessible calculators, acts, bulletins and utilities.</p>
+  </div>
+  <div class="kb-grid">
+    <div class="kb-card fade-up">
+      <div class="kb-icon"><i class="fas fa-calculator"></i></div>
+      <div class="kb-title">Calculators</div>
+      <div class="kb-desc">GST, Income Tax, TDS, EMI, HRA, Net Worth, RERA and more financial calculators.</div>
+    </div>
+    <div class="kb-card fade-up" style="transition-delay:0.1s">
+      <div class="kb-icon"><i class="fas fa-gavel"></i></div>
+      <div class="kb-title">Acts & Laws</div>
+      <div class="kb-desc">Direct tax, indirect tax, corporate laws, VAT laws, and GST legislation at your fingertips.</div>
+    </div>
+    <div class="kb-card fade-up" style="transition-delay:0.2s">
+      <div class="kb-icon"><i class="fas fa-newspaper"></i></div>
+      <div class="kb-title">Bulletins</div>
+      <div class="kb-desc">RBI, SEBI, Income Tax, GST, Company Law, Labour Law, and FEMA notifications.</div>
+    </div>
+    <div class="kb-card fade-up" style="transition-delay:0.3s">
+      <div class="kb-icon"><i class="fas fa-tools"></i></div>
+      <div class="kb-title">Utilities</div>
+      <div class="kb-desc">TDS rates, depreciation tables, IFSC/MICR codes, stamp duty, and HSN rate lists.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section id="trust">
+  <div class="trust-inner fade-up">
+    <div class="section-tag" style="justify-content:center">
+      <div class="section-tag-line"></div>
+      <span>Our Promise</span>
+      <div class="section-tag-line"></div>
+    </div>
+    <div class="trust-quote">
+      "We don't just file returns — we build <em>financial fortresses</em> around our clients' interests."
+    </div>
+    <div class="trust-attrs">— R. Ramalingam, Founder & Managing Partner</div>
+    <div class="trust-logos">
+      <div class="trust-logo-item">
+        <div class="trust-logo-icon"><i class="fas fa-building"></i></div>
+        <div class="trust-logo-label">Corporates</div>
+      </div>
+      <div class="trust-logo-item">
+        <div class="trust-logo-icon"><i class="fas fa-users"></i></div>
+        <div class="trust-logo-label">Individuals</div>
+      </div>
+      <div class="trust-logo-item">
+        <div class="trust-logo-icon"><i class="fas fa-globe"></i></div>
+        <div class="trust-logo-label">NRI Clients</div>
+      </div>
+      <div class="trust-logo-item">
+        <div class="trust-logo-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="trust-logo-label">LLPs & Firms</div>
+      </div>
+      <div class="trust-logo-item">
+        <div class="trust-logo-icon"><i class="fas fa-plane"></i></div>
+        <div class="trust-logo-label">Foreign Nationals</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag">
+    <div class="section-tag-line"></div>
+    <span>Get in Touch</span>
+  </div>
+  <h2 class="section-title">Let's <em>work</em> together</h2>
+  <div class="contact-grid">
+    <div class="contact-info fade-up">
+      <div class="contact-item">
+        <div class="contact-item-icon"><i class="fas fa-location-dot"></i></div>
+        <div>
+          <strong>Office Location</strong>
+          <span>Chennai, Tamil Nadu, India</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
+        <div>
+          <strong>Working Hours</strong>
+          <div class="contact-hours">
+            <span class="open">● Open Today</span>
+            <span>Monday – Saturday: 9:30 AM – 7:00 PM</span>
+            <span>Sunday: Closed</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+        <div>
+          <strong>Email</strong>
+          <span>info@rrassociates.co</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i class="fas fa-briefcase"></i></div>
+        <div>
+          <strong>Career Opportunities</strong>
+          <span>We nurture and cultivate a sense of pride in the work. Send your CV and grow with us.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form fade-up" style="transition-delay:0.15s">
+      <div class="form-row">
+        <div class="form-field">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name" />
+        </div>
+        <div class="form-field">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+91 00000 00000" />
+        </div>
+        <div class="form-field">
+          <label>Service Interested In</label>
+          <select>
+            <option value="">Select a service...</option>
+            <option>Direct Tax Consultancy</option>
+            <option>Indirect Tax & GST</option>
+            <option>Audit & Assurance</option>
+            <option>Risk Advisory</option>
+            <option>Corporate & Secretarial</option>
+            <option>Business Advisory</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Message</label>
+        <textarea placeholder="Briefly describe your requirement…"></textarea>
+      </div>
+      <button class="form-submit">
+        Send Message <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <strong>R. Ramalingam & Associates</strong>
+      <span>Chartered Accountants</span>
+      <p>Premier professional services firm established in 2004. Empowering businesses with precision, integrity, and excellence.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <a href="#services">Direct Tax</a>
+      <a href="#services">Indirect Tax & GST</a>
+      <a href="#services">Audit & Assurance</a>
+      <a href="#services">Risk Advisory</a>
+      <a href="#services">Corporate & Secretarial</a>
+      <a href="#services">Business Advisory</a>
+    </div>
+    <div class="footer-col">
+      <h5>Knowledge Bank</h5>
+      <a href="#">Calculators</a>
+      <a href="#">Acts & Laws</a>
+      <a href="#">Bulletins</a>
+      <a href="#">Utilities</a>
+      <a href="#">GST Resources</a>
+      <a href="#">Forms</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="#about">About Us</a>
+      <a href="#">Our Team</a>
+      <a href="#">Careers</a>
+      <a href="#contact">Contact</a>
+      <a href="#">Admin Login</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 R. Ramalingam & Associates. All rights reserved. · Chennai, India</p>
+    <div class="footer-socials">
+      <a href="#" class="footer-social"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="footer-social"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="footer-social"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const els = document.querySelectorAll('.fade-up');
+  const io  = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+
+  // Nav scroll style
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.borderBottomColor =
+      window.scrollY > 40 ? 'rgba(184,151,58,0.22)' : 'rgba(184,151,58,0.12)';
+  });
+
+  // Form submit mock
+  document.querySelector('.form-submit').addEventListener('click', function() {
+    this.textContent = 'Message Sent ✓';
+    this.style.background = '#4ade80';
+    this.style.color = '#0e0e0e';
+    setTimeout(() => {
+      this.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+      this.style.background = '';
+      this.style.color = '';
+    }, 3000);
+  });
+</script>
+</body>
+</html>
