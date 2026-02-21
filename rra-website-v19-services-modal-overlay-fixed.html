@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R. Ramalingam &amp; Associates | Chartered Accountants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0e0e0e;--ink-soft:#2a2a2a;
+  --gold:#b8973a;--gold-lt:#d4af5a;
+  --cream:#f7f4ef;--cream-dk:#ede8e0;
+  --white:#ffffff;--muted:#6b6560;
+  --border:rgba(184,151,58,0.18);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:72px;background:rgba(14,14,14,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(184,151,58,0.12)}
+.nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-logo-icon{width:38px;height:38px;background:var(--gold);display:flex;align-items:center;justify-content:center;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+.nav-logo-icon span{font-family:'Cormorant Garamond',serif;color:#0e0e0e;font-size:18px;font-weight:600}
+.nav-brand-text{line-height:1.1}
+.nav-brand-text strong{display:block;color:var(--white);font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;letter-spacing:0.02em}
+.nav-brand-text small{color:var(--gold);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:300}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.72);text-decoration:none;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;cursor:pointer}
+.nav-links a:hover{color:var(--gold-lt)}
+.nav-cta{background:var(--gold);color:var(--ink)!important;padding:9px 22px;font-weight:500!important;letter-spacing:0.08em!important;transition:background 0.2s!important}
+.nav-cta:hover{background:var(--gold-lt)!important}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--ink);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-bg-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(184,151,58,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,151,58,0.04) 1px,transparent 1px);background-size:60px 60px}
+.hero-bg-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(184,151,58,0.12) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:120px 5vw 80px 8vw;position:relative;z-index:2}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.hero-eyebrow-line{width:40px;height:1px;background:var(--gold)}
+.hero-eyebrow span{color:var(--gold);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-family:'DM Mono',monospace}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,5.5vw,84px);font-weight:300;color:var(--white);line-height:1.05;letter-spacing:-0.01em;margin-bottom:28px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero h1 strong{font-weight:600;display:block}
+.hero-desc{color:rgba(255,255,255,0.5);font-size:16px;line-height:1.75;max-width:420px;margin-bottom:48px;font-weight:300}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--ink);padding:15px 36px;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all 0.25s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-primary:hover{background:var(--gold-lt);transform:translateY(-1px)}
+.btn-outline{border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);padding:15px 36px;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:400;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all 0.25s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:flex;gap:40px;margin-top:64px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08)}
+.hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--gold);line-height:1}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.12em;text-transform:uppercase;margin-top:4px}
+.hero-right{position:relative;display:flex;align-items:flex-end;justify-content:center;padding:80px 5vw 0}
+.hero-img-frame{width:100%;max-width:460px;position:relative}
+.hero-img-frame::before{content:'';position:absolute;top:-20px;right:-20px;width:100%;height:100%;border:1px solid var(--gold);opacity:0.3;z-index:0}
+.hero-img-frame img{width:100%;height:520px;object-fit:cover;display:block;position:relative;z-index:1;filter:grayscale(20%) contrast(1.05)}
+.hero-img-badge{position:absolute;bottom:30px;left:-30px;z-index:2;background:var(--gold);padding:18px 24px}
+.hero-img-badge strong{display:block;font-size:28px;font-family:'Cormorant Garamond',serif;color:var(--ink);line-height:1}
+.hero-img-badge span{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink);opacity:0.7}
+
+/* ── TICKER ── */
+.ticker-wrap{background:var(--gold);overflow:hidden;padding:14px 0}
+.ticker-track{display:flex;animation:ticker 28s linear infinite;white-space:nowrap}
+.ticker-item{display:inline-flex;align-items:center;gap:28px;padding:0 28px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);font-weight:500}
+.ticker-dot{width:4px;height:4px;background:var(--ink);border-radius:50%;opacity:0.5;flex-shrink:0}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SECTION SHELL ── */
+section{padding:100px 8vw}
+.section-tag{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.section-tag-line{width:32px;height:1px;background:var(--gold)}
+.section-tag span{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-family:'DM Mono',monospace}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,3.5vw,56px);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:16px}
+.section-title em{font-style:italic}
+.section-sub{color:var(--muted);font-size:16px;line-height:1.7;max-width:520px;font-weight:300}
+
+/* ── ABOUT ── */
+#about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:64px}
+.about-img-wrap{position:relative}
+.about-img-wrap img{width:100%;height:480px;object-fit:cover;display:block}
+.about-img-wrap::after{content:'';position:absolute;bottom:-16px;left:16px;width:100%;height:100%;border:1px solid var(--gold);opacity:0.25;z-index:-1}
+.about-pill{position:absolute;top:28px;right:-20px;background:var(--ink);color:var(--white);padding:16px 22px;z-index:2}
+.about-pill strong{display:block;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold)}
+.about-pill span{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;opacity:0.6}
+.about-content p{color:var(--muted);line-height:1.85;margin-bottom:20px;font-size:15px;font-weight:300}
+.about-values{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.about-value{display:flex;align-items:flex-start;gap:12px;padding:16px;border:1px solid var(--cream-dk)}
+.about-value-icon{color:var(--gold);font-size:14px;margin-top:3px;flex-shrink:0}
+.about-value strong{display:block;font-size:13px;font-weight:500;margin-bottom:3px}
+.about-value span{font-size:12px;color:var(--muted)}
+
+/* ── TEAM ── */
+#team{background:var(--cream)}
+.team-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:20px}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.team-card{background:var(--white);border:1px solid var(--cream-dk);overflow:hidden;transition:all 0.32s}
+.team-card:hover{border-color:rgba(184,151,58,0.4);transform:translateY(-5px);box-shadow:0 20px 48px rgba(0,0,0,0.10)}
+.team-card-img{position:relative;overflow:hidden}
+.team-card-img img{width:100%;height:270px;object-fit:cover;object-position:top center;display:block;filter:grayscale(18%);transition:filter 0.35s,transform 0.35s}
+.team-card:hover .team-card-img img{filter:grayscale(0%);transform:scale(1.03)}
+.team-badge{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(14,14,14,0.75));padding:28px 18px 14px}
+.team-badge-role{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-family:'DM Mono',monospace}
+.team-card-body{padding:20px 22px 24px}
+.team-card-body h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--ink);margin-bottom:4px;line-height:1.2}
+.team-card-title{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-family:'DM Mono',monospace}
+.team-card-bio{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:16px}
+.team-quals{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.team-qual{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;background:var(--cream);border:1px solid var(--cream-dk);color:var(--muted)}
+.team-divider{height:1px;background:var(--cream-dk);margin-bottom:14px}
+.team-socials{display:flex;gap:8px}
+.team-social{width:30px;height:30px;border:1px solid var(--cream-dk);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:11px;text-decoration:none;transition:all 0.2s}
+.team-social:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── SERVICES OVERVIEW ── */
+#services{background:var(--ink)}
+#services .section-title{color:var(--white)}
+#services .section-sub{color:rgba(255,255,255,0.45)}
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.05)}
+.service-card{background:var(--ink);padding:44px 36px;border:1px solid rgba(184,151,58,0.08);transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:0;background:var(--gold);transition:height 0.4s ease}
+.service-card:hover{background:rgba(184,151,58,0.05);border-color:rgba(184,151,58,0.22)}
+.service-card:hover::before{height:100%}
+.service-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);opacity:0.5;letter-spacing:0.1em;margin-bottom:24px}
+.service-icon{width:48px;height:48px;margin-bottom:24px;background:rgba(184,151,58,0.1);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:20px}
+.service-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--white);margin-bottom:14px;line-height:1.2}
+.service-card p{color:rgba(255,255,255,0.4);font-size:13.5px;line-height:1.7;font-weight:300}
+.service-card-link{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;margin-top:28px;transition:gap 0.2s;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0}
+.service-card-link:hover{gap:14px}
+
+/* ── SERVICE DETAIL ── */
+#svc-detail{
+  position:fixed !important;
+  top:0 !important;
+  left:0 !important;
+  width:100% !important;
+  height:100% !important;
+  background:rgba(0,0,0,0.75) !important;
+  backdrop-filter: blur(6px);
+  z-index:9999 !important;
+  display:none;
+  overflow:auto;
+  padding:0 !important;
+}
+.svc-back{display:inline-flex;align-items:center;gap:10px;color:rgba(255,255,255,0.5);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0;margin-bottom:52px;transition:color 0.2s,gap 0.2s}
+.svc-back:hover{color:var(--gold);gap:14px}
+.svc-page{display:none}
+.svc-page.active{display:block}
+.svc-hero{display:grid;grid-template-columns:1fr 1fr;gap:72px;margin-bottom:64px;align-items:start}
+.svc-hero-label{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);opacity:0.5;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:20px}
+.svc-hero-icon{width:60px;height:60px;margin-bottom:24px;background:rgba(184,151,58,0.1);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:24px}
+.svc-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,3.5vw,52px);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:20px}
+.svc-hero-title em{font-style:italic;color:var(--gold)}
+.svc-hero-desc{color:rgba(255,255,255,0.45);font-size:15px;line-height:1.8;font-weight:300}
+.svc-keypoints{display:flex;flex-direction:column;gap:14px;padding-top:6px}
+.svc-keypoint{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;background:rgba(255,255,255,0.03);border-left:2px solid rgba(184,151,58,0.4);transition:border-color 0.2s}
+.svc-keypoint:hover{border-left-color:var(--gold)}
+.svc-kp-icon{color:var(--gold);font-size:14px;margin-top:3px;flex-shrink:0}
+.svc-keypoint strong{display:block;color:var(--white);font-size:13px;font-weight:500;margin-bottom:4px}
+.svc-keypoint span{color:rgba(255,255,255,0.38);font-size:12.5px;line-height:1.6}
+.svc-offerings-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--white);margin-bottom:28px}
+.svc-offerings-title em{color:var(--gold);font-style:italic}
+.svc-offerings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04);margin-bottom:52px}
+.svc-offering{background:var(--ink);padding:28px 26px;border:1px solid rgba(184,151,58,0.06);transition:all 0.25s}
+.svc-offering:hover{background:rgba(184,151,58,0.04);border-color:rgba(184,151,58,0.16)}
+.svc-offering-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);opacity:0.4;letter-spacing:0.1em;margin-bottom:10px}
+.svc-offering strong{display:block;color:var(--white);font-size:14px;font-weight:500;margin-bottom:7px}
+.svc-offering span{color:rgba(255,255,255,0.35);font-size:12.5px;line-height:1.65}
+.svc-cta{display:flex;justify-content:space-between;align-items:center;padding:36px 40px;gap:24px;flex-wrap:wrap;background:rgba(184,151,58,0.06);border:1px solid rgba(184,151,58,0.16)}
+.svc-cta-text strong{display:block;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--white);margin-bottom:4px}
+.svc-cta-text p{color:rgba(255,255,255,0.45);font-size:14px;font-weight:300}
+
+/* ── WHY US ── */
+#why{background:var(--cream)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:64px}
+.why-list{display:flex;flex-direction:column;gap:0}
+.why-item{display:flex;gap:24px;align-items:flex-start;padding:28px 0;border-bottom:1px solid var(--cream-dk)}
+.why-item:last-child{border-bottom:none}
+.why-count{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);font-weight:600;letter-spacing:0.05em;flex-shrink:0;padding-top:4px}
+.why-item h4{font-size:15px;font-weight:500;margin-bottom:6px}
+.why-item p{font-size:13.5px;color:var(--muted);line-height:1.65;font-weight:300}
+.why-visual{background:var(--ink);padding:52px 44px;position:relative}
+.why-visual::before{content:'';position:absolute;top:20px;left:20px;right:-20px;bottom:-20px;border:1px solid var(--gold);opacity:0.15;z-index:-1}
+.why-visual-quote{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;font-style:italic;color:var(--white);line-height:1.4;margin-bottom:32px}
+.why-visual-quote em{color:var(--gold)}
+.why-pillars{display:flex;flex-direction:column;gap:16px}
+.why-pillar{display:flex;align-items:center;gap:16px;padding:16px;background:rgba(255,255,255,0.04);border-left:2px solid var(--gold)}
+.why-pillar-icon{color:var(--gold);font-size:18px;width:24px;text-align:center}
+.why-pillar strong{display:block;color:var(--white);font-size:13px;font-weight:500}
+.why-pillar span{color:rgba(255,255,255,0.4);font-size:12px}
+
+/* ── KNOWLEDGE BANK ── */
+#knowledge{background:var(--white)}
+/* Tab bar */
+.kb-tabs{display:flex;flex-wrap:wrap;gap:2px;margin-top:52px}
+.kb-tab{display:inline-flex;align-items:center;gap:9px;padding:14px 22px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;background:var(--cream);color:var(--muted);border:none;cursor:pointer;transition:all 0.2s;border-bottom:2px solid transparent}
+.kb-tab i{font-size:13px}
+.kb-tab:hover{background:var(--cream-dk);color:var(--ink)}
+.kb-tab.kb-active{background:var(--ink);color:var(--gold);border-bottom-color:var(--gold)}
+/* Panels */
+.kb-panel{display:none}
+.kb-panel.kb-open{display:block}
+.kb-panel-body{background:var(--cream);padding:44px 40px;margin-top:2px}
+/* Category heading inside panel */
+.kb-cat{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--cream-dk)}
+.kb-cat:first-child{margin-top:0}
+/* Link grid */
+.kb-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.kb-a{display:flex;align-items:center;gap:10px;padding:12px 15px;background:var(--white);color:var(--ink-soft);font-size:13px;text-decoration:none;transition:all 0.18s;border-left:2px solid transparent}
+.kb-a:hover{border-left-color:var(--gold);color:var(--gold);background:#fdfaf4}
+.kb-a i{font-size:9px;color:var(--gold);opacity:0.55;flex-shrink:0}
+@media(max-width:900px){.kb-links{grid-template-columns:1fr 1fr}.kb-tab{padding:11px 15px;font-size:11px}}
+@media(max-width:580px){.kb-links{grid-template-columns:1fr}.kb-panel-body{padding:28px 20px}}
+
+/* ── TRUST ── */
+#trust{background:var(--cream-dk)}
+.trust-inner{max-width:800px;margin:0 auto;text-align:center}
+.trust-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,42px);font-weight:300;font-style:italic;line-height:1.4;color:var(--ink);margin:40px 0 28px}
+.trust-quote em{color:var(--gold);font-style:normal}
+.trust-attrs{color:var(--muted);font-size:13px;letter-spacing:0.08em;text-transform:uppercase}
+.trust-logos{display:flex;justify-content:center;align-items:center;gap:48px;margin-top:64px;flex-wrap:wrap}
+.trust-logo-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.trust-logo-icon{width:52px;height:52px;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:20px;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+.trust-logo-label{font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+
+/* ── CONTACT ── */
+#contact{background:var(--ink)}
+#contact .section-title{color:var(--white)}
+#contact .section-sub{color:rgba(255,255,255,0.4)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:64px}
+.contact-info{display:flex;flex-direction:column;gap:36px}
+.contact-item{display:flex;gap:20px}
+.contact-item-icon{width:44px;height:44px;flex-shrink:0;background:rgba(184,151,58,0.1);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px}
+.contact-item strong{display:block;color:var(--white);font-size:13px;font-weight:500;margin-bottom:4px;letter-spacing:0.06em;text-transform:uppercase}
+.contact-item span{color:rgba(255,255,255,0.45);font-size:14px;line-height:1.6}
+.contact-hours{margin-top:4px}
+.contact-hours span{display:block;color:rgba(255,255,255,0.45);font-size:13px}
+.contact-hours .open{color:#4ade80;font-size:11px;letter-spacing:0.1em;text-transform:uppercase}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.form-field input,.form-field select,.form-field textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--white);padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;-webkit-appearance:none}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--gold)}
+.form-field textarea{resize:vertical;min-height:120px}
+.form-field select option{background:var(--ink-soft)}
+.form-submit{background:var(--gold);color:var(--ink);border:none;padding:16px 40px;font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;cursor:pointer;align-self:flex-start;display:flex;align-items:center;gap:10px;transition:all 0.25s}
+.form-submit:hover{background:var(--gold-lt);transform:translateY(-1px)}
+
+/* ── FOOTER ── */
+footer{background:#070707;padding:48px 8vw 28px;border-top:1px solid rgba(184,151,58,0.12)}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px;flex-wrap:wrap;gap:32px}
+.footer-brand strong{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);display:block;margin-bottom:4px}
+.footer-brand span{font-size:11px;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase}
+.footer-brand p{color:rgba(255,255,255,0.3);font-size:13px;margin-top:12px;max-width:280px;line-height:1.6}
+.footer-col h5{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.footer-col a{display:block;color:rgba(255,255,255,0.4);font-size:13px;text-decoration:none;margin-bottom:9px;transition:color 0.2s;cursor:pointer;background:none;border:none;text-align:left;font-family:'DM Sans',sans-serif}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,0.05)}
+.footer-bottom p{color:rgba(255,255,255,0.2);font-size:12px}
+.footer-socials{display:flex;gap:14px}
+.footer-social{width:34px;height:34px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);font-size:13px;text-decoration:none;transition:all 0.2s}
+.footer-social:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1200px){.team-grid{grid-template-columns:repeat(3,1fr)}} @media(max-width:900px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .about-grid,.why-grid,.contact-grid,.svc-hero{grid-template-columns:1fr;gap:48px}
+  .services-grid,.svc-offerings-grid{grid-template-columns:1fr}
+  .kb-grid{grid-template-columns:1fr 1fr}
+  .services-header{flex-direction:column;align-items:flex-start;gap:24px}
+  .nav-links{display:none}
+  .form-row{grid-template-columns:1fr}
+  .footer-top{flex-direction:column}
+  .svc-cta{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:600px){
+  .team-grid{grid-template-columns:1fr}
+}
+</style>
+
+<style>
+#svc-detail{
+  position:fixed !important;
+  top:0 !important;
+  left:0 !important;
+  width:100% !important;
+  height:100% !important;
+  background:rgba(0,0,0,0.75) !important;
+  backdrop-filter: blur(6px);
+  z-index:9999 !important;
+  display:none;
+  overflow:auto;
+  padding:0 !important;
+}
+#svc-detail .svc-page{display:none;}
+#svc-detail .svc-page{display:none;} #svc-detail .svc-page.active{display:block;}
+#svc-detail .svc-back{display:none;} /* hide old back button */
+#svc-detail::before{
+  content:'';
+  position:fixed;
+  inset:0;
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-logo-icon"><span>R</span></div>
+    <div class="nav-brand-text">
+      <strong>R. Ramalingam &amp; Associates</strong>
+      <small>Chartered Accountants · Est. 2004</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a onclick="showMain();document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</a></li>
+    <li><a onclick="showMain();document.getElementById('team').scrollIntoView({behavior:'smooth'})">Team</a></li>
+    <li><a onclick="showMain();document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</a></li>
+    <li><a onclick="showMain();document.getElementById('knowledge').scrollIntoView({behavior:'smooth'})">Knowledge</a></li>
+    <li><a onclick="showMain();document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN CONTENT WRAPPER -->
+<div id="main-content">
+
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span>Chartered Accountants · Chennai, India</span>
+    </div>
+    <h1><em>Precision.</em><strong>Integrity.</strong>Excellence.</h1>
+    <p class="hero-desc">R. Ramalingam &amp; Associates delivers world-class financial advisory, tax consultancy, and audit services to businesses and individuals across India since 2004.</p>
+    <div class="hero-actions">
+      <a onclick="showMain();document.getElementById('services').scrollIntoView({behavior:'smooth'})" class="btn-primary">Explore Services <i class="fas fa-arrow-right"></i></a>
+      <a onclick="showMain();document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="btn-outline">Schedule a Meeting</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">20+</div><div class="hero-stat-label">Years of Service</div></div>
+      <div><div class="hero-stat-num">500+</div><div class="hero-stat-label">Clients Served</div></div>
+      <div><div class="hero-stat-num">6</div><div class="hero-stat-label">Practice Areas</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-frame">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=80" alt="Professional Advisory">
+      <div class="hero-img-badge"><strong>2004</strong><span>Established</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">Direct Tax <span class="ticker-dot"></span></span>
+    <span class="ticker-item">GST &amp; Indirect Tax <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Audit &amp; Assurance <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Corporate Secretarial <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Risk Advisory <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Business Advisory <span class="ticker-dot"></span></span>
+    <span class="ticker-item">FEMA Compliance <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Transfer Pricing <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Direct Tax <span class="ticker-dot"></span></span>
+    <span class="ticker-item">GST &amp; Indirect Tax <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Audit &amp; Assurance <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Corporate Secretarial <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Risk Advisory <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Business Advisory <span class="ticker-dot"></span></span>
+    <span class="ticker-item">FEMA Compliance <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Transfer Pricing <span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap fade-up">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=80" alt="Professional Team">
+      <div class="about-pill"><strong>Premier</strong><span>CA Firm</span></div>
+    </div>
+    <div class="fade-up" style="transition-delay:0.15s">
+      <div class="section-tag"><div class="section-tag-line"></div><span>Who We Are</span></div>
+      <h2 class="section-title">Built on <em>trust</em>,<br>driven by results</h2>
+      <div class="about-content">
+        <p>R. Ramalingam &amp; Associates, Chartered Accountants, is a premier professional services firm established in 2004, headquartered in Chennai, India. We are committed to delivering excellence through a client-first approach across all our practice areas.</p>
+        <p>Our mission is to empower businesses with comprehensive financial strategies, ensuring compliance, growth, and long-term value creation. We serve corporates, LLPs, firms, individuals, NRIs, and foreign nationals across India.</p>
+      </div>
+      <div class="about-values">
+        <div class="about-value"><i class="fas fa-shield-halved about-value-icon"></i><div><strong>Integrity First</strong><span>Ethical practice in every engagement</span></div></div>
+        <div class="about-value"><i class="fas fa-bullseye about-value-icon"></i><div><strong>Precision</strong><span>Meticulous attention to every detail</span></div></div>
+        <div class="about-value"><i class="fas fa-handshake about-value-icon"></i><div><strong>Partnership</strong><span>Long-term relationships with clients</span></div></div>
+        <div class="about-value"><i class="fas fa-lightbulb about-value-icon"></i><div><strong>Innovation</strong><span>Modern solutions for complex needs</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="team-header">
+    <div>
+      <div class="section-tag"><div class="section-tag-line"></div><span>Our People</span></div>
+      <h2 class="section-title">Meet the <em>leadership</em></h2>
+    </div>
+    <p class="section-sub" style="font-size:14px;margin-bottom:0">Seasoned Chartered Accountants and domain specialists committed to your success.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card fade-up">
+      <div class="team-card-img">
+        <img src="https://rrassociates.co/resource/Image/Ramalingam.jpg" alt="R. Ramalingam">
+        <div class="team-badge"><div class="team-badge-role">Founder &amp; Managing Partner</div></div>
+      </div>
+      <div class="team-card-body">
+        <h3>R. Ramalingam</h3>
+        <div class="team-card-title">Managing Partner</div>
+        <p class="team-card-bio">25+ years of expertise in direct taxation, audit, and corporate advisory. Founded the firm in 2004 with a vision to deliver world-class CA services from Chennai.</p>
+        <div class="team-quals"><span class="team-qual">FCA</span><span class="team-qual">Direct Tax</span><span class="team-qual">Audit</span><span class="team-qual">Advisory</span></div>
+        <div class="team-divider"></div>
+        <div class="team-socials"><a href="#" class="team-social"><i class="fab fa-linkedin-in"></i></a><a onclick="showMain();document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="team-social"><i class="fas fa-envelope"></i></a></div>
+      </div>
+    </div>
+    <div class="team-card fade-up" style="transition-delay:0.1s">
+      <div class="team-card-img">
+        <img src="https://rrassociates.co/resource/Image/Chelladurai.jpg" alt="CA Chelladurai">
+        <div class="team-badge"><div class="team-badge-role">Partner</div></div>
+      </div>
+      <div class="team-card-body">
+        <h3>CA Chelladurai</h3>
+        <div class="team-card-title">Partner — GST &amp; Indirect Tax</div>
+        <p class="team-card-bio">Specialist in GST advisory, indirect taxation, and FEMA compliance. Heads the T. Nagar branch with a focus on mid-market corporates.</p>
+        <div class="team-quals"><span class="team-qual">ACA</span><span class="team-qual">GST</span><span class="team-qual">FEMA</span><span class="team-qual">Customs</span></div>
+        <div class="team-divider"></div>
+        <div class="team-socials"><a href="#" class="team-social"><i class="fab fa-linkedin-in"></i></a><a onclick="showMain();document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="team-social"><i class="fas fa-envelope"></i></a></div>
+      </div>
+    </div>
+    <div class="team-card fade-up" style="transition-delay:0.2s">
+      <div class="team-card-img">
+        <img src="https://rrassociates.co/resource/Image/Kannan.jpg" alt="CA Kannan">
+        <div class="team-badge"><div class="team-badge-role">Manager — Audit</div></div>
+      </div>
+      <div class="team-card-body">
+        <h3>CA Kannan</h3>
+        <div class="team-card-title">Manager — Audit &amp; Assurance</div>
+        <p class="team-card-bio">Specialises in statutory and internal audit engagements across diverse sectors. Brings deep expertise in risk-based audit methodology and IND AS compliance.</p>
+        <div class="team-quals"><span class="team-qual">ACA</span><span class="team-qual">Audit</span><span class="team-qual">IND AS</span><span class="team-qual">Risk</span></div>
+        <div class="team-divider"></div>
+        <div class="team-socials"><a href="#" class="team-social"><i class="fab fa-linkedin-in"></i></a><a onclick="showMain();document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="team-social"><i class="fas fa-envelope"></i></a></div>
+      </div>
+    </div>
+    <div class="team-card fade-up" style="transition-delay:0.3s">
+      <div class="team-card-img">
+        <img src="https://rrassociates.co/resource/Image/Srinivasaraghavan.jpg" alt="CA Srinivasaraghavan">
+        <div class="team-badge"><div class="team-badge-role">Manager — Corporate</div></div>
+      </div>
+      <div class="team-card-body">
+        <h3>CA Srinivasaraghavan</h3>
+        <div class="team-card-title">Manager — Corporate &amp; Secretarial</div>
+        <p class="team-card-bio">Handles ROC filings, company incorporations, and Companies Act 2013 compliance. Extensive experience in LLP formations and corporate restructuring.</p>
+        <div class="team-quals"><span class="team-qual">ACA</span><span class="team-qual">Company Law</span><span class="team-qual">ROC</span><span class="team-qual">LLP</span></div>
+        <div class="team-divider"></div>
+        <div class="team-socials"><a href="#" class="team-social"><i class="fab fa-linkedin-in"></i></a><a onclick="showMain();document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="team-social"><i class="fas fa-envelope"></i></a></div>
+      </div>
+    </div>
+
+    <div class="team-card fade-up" style="transition-delay:0.4s">
+      <div class="team-card-img">
+        <img src="https://rrassociates.co/resource/Image/Vishal.jpg" alt="CA Vishal">
+        <div class="team-badge"><div class="team-badge-role">Manager</div></div>
+      </div>
+      <div class="team-card-body">
+        <h3>CA Vishal</h3>
+        <div class="team-card-title">Manager — Risk &amp; Advisory</div>
+        <p class="team-card-bio">Focused on risk advisory, internal audits, and business advisory services. Brings analytical rigour and practical insights to every client engagement.</p>
+        <div class="team-quals"><span class="team-qual">ACA</span><span class="team-qual">Risk</span><span class="team-qual">Advisory</span><span class="team-qual">Audit</span></div>
+        <div class="team-divider"></div>
+        <div class="team-socials"><a href="#" class="team-social"><i class="fab fa-linkedin-in"></i></a><a onclick="showMain();document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="team-social"><i class="fas fa-envelope"></i></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-tag"><div class="section-tag-line"></div><span>What We Do</span></div>
+      <h2 class="section-title" style="color:var(--white)">Our <em>Practice</em> Areas</h2>
+    </div>
+    <p class="section-sub" style="font-size:14px">Comprehensive financial and legal advisory tailored to your needs.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up" onclick="openService('direct')">
+      <div class="service-num">01 — Direct Tax</div>
+      <div class="service-icon"><i class="fas fa-landmark"></i></div>
+      <h3>Direct Tax Consultancy</h3>
+      <p>Comprehensive direct tax advisory for corporates, LLPs, individuals, NRIs, and foreign nationals. Covering ITR filing, representation before ITAT, transfer pricing, DTAA, India entry, and STPI compliance.</p>
+      <button class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></button>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.1s" onclick="openService('indirect')">
+      <div class="service-num">02 — Indirect Tax</div>
+      <div class="service-icon"><i class="fas fa-receipt"></i></div>
+      <h3>Indirect Tax &amp; GST</h3>
+      <p>End-to-end GST consultancy and compliance — advisory, return filing, ITC planning, departmental audit assistance, and litigation before Commissioner (Appeals) and CESTAT.</p>
+      <button class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></button>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.2s" onclick="openService('audit')">
+      <div class="service-num">03 — Audit</div>
+      <div class="service-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+      <h3>Audit &amp; Assurance</h3>
+      <p>Statutory, C&amp;AG, bank, tax, transfer pricing, IFRS convergence, forensic, and concurrent audits — delivered with integrity, transparency, and a risk-based methodology.</p>
+      <button class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></button>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.1s" onclick="openService('risk')">
+      <div class="service-num">04 — Risk</div>
+      <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+      <h3>Risk Advisory</h3>
+      <p>Risk-based internal audits, IFC/ICFR implementation, IS audit, SOP documentation, ERP control reviews, and credit &amp; risk audits for banks and financial institutions.</p>
+      <button class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></button>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.2s" onclick="openService('corporate')">
+      <div class="service-num">05 — Corporate</div>
+      <div class="service-icon"><i class="fas fa-building-columns"></i></div>
+      <h3>Corporate &amp; Secretarial</h3>
+      <p>Incorporation, corporate governance advisory, secretarial compliance, statutory record maintenance, periodic filings, and restructuring under the Companies Act 2013.</p>
+      <button class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></button>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.3s" onclick="openService('advisory')">
+      <div class="service-num">06 — Advisory</div>
+      <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+      <h3>Business Advisory</h3>
+      <p>Accounting advisory, transaction advisory with financial due diligence, end-to-end bookkeeping, CFO advisory, MIS reporting, business plan preparation, and loan syndication.</p>
+      <button class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-grid">
+    <div class="fade-up">
+      <div class="section-tag"><div class="section-tag-line"></div><span>Why Choose Us</span></div>
+      <h2 class="section-title">The <em>difference</em><br>that matters</h2>
+      <div class="why-list">
+        <div class="why-item"><div class="why-count">01</div><div><h4>20+ Years of Proven Expertise</h4><p>Founded in 2004, our depth of experience across tax, audit, and advisory means every client benefits from decades of accumulated knowledge.</p></div></div>
+        <div class="why-item"><div class="why-count">02</div><div><h4>Multi-disciplinary Team</h4><p>Chartered Accountants, tax lawyers, and domain specialists working in concert to deliver holistic, integrated solutions for complex mandates.</p></div></div>
+        <div class="why-item"><div class="why-count">03</div><div><h4>Client-Centric Philosophy</h4><p>We invest time to understand your business deeply, ensuring every recommendation is tailored, practical, and commercially sound.</p></div></div>
+        <div class="why-item"><div class="why-count">04</div><div><h4>Pan-India Compliance Capability</h4><p>From Chennai to every corner of India — we handle state-specific tax, RERA, VAT, and regulatory requirements with equal depth.</p></div></div>
+      </div>
+    </div>
+    <div class="why-visual fade-up" style="transition-delay:0.2s">
+      <div class="why-visual-quote">"Your financial success is not just our mandate — it is our <em>commitment</em>."</div>
+      <div class="why-pillars">
+        <div class="why-pillar"><i class="fas fa-certificate why-pillar-icon"></i><div><strong>ICAI Registered</strong><span>Fully certified Chartered Accountants</span></div></div>
+        <div class="why-pillar"><i class="fas fa-clock why-pillar-icon"></i><div><strong>Mon–Sat · 9:30 AM – 7:00 PM</strong><span>Accessible when you need us most</span></div></div>
+        <div class="why-pillar"><i class="fas fa-map-marker-alt why-pillar-icon"></i><div><strong>Chennai, Tamil Nadu</strong><span>Serving clients across India</span></div></div>
+        <div class="why-pillar"><i class="fas fa-database why-pillar-icon"></i><div><strong>Knowledge Bank Portal</strong><span>Calculators, acts, rules &amp; bulletins</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KNOWLEDGE BANK -->
+<section id="knowledge">
+  <div class="section-tag"><div class="section-tag-line"></div><span>Resources</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px">
+    <h2 class="section-title">Knowledge <em>Bank</em></h2>
+    <p class="section-sub" style="font-size:14px;margin-bottom:0">170+ freely accessible calculators, acts, bulletins, utilities, forms &amp; more — directly from rrassociates.co.</p>
+  </div>
+
+  <!-- TAB BAR -->
+  <div class="kb-tabs">
+    <button class="kb-tab kb-active" onclick="kbShow('calc',this)"><i class="fas fa-calculator"></i> Calculators</button>
+    <button class="kb-tab" onclick="kbShow('bull',this)"><i class="fas fa-newspaper"></i> Bulletins</button>
+    <button class="kb-tab" onclick="kbShow('util',this)"><i class="fas fa-wrench"></i> Utilities</button>
+    <button class="kb-tab" onclick="kbShow('lnks',this)"><i class="fas fa-link"></i> Links</button>
+    <button class="kb-tab" onclick="kbShow('acts',this)"><i class="fas fa-gavel"></i> Acts</button>
+    <button class="kb-tab" onclick="kbShow('rules',this)"><i class="fas fa-scroll"></i> Rules</button>
+    <button class="kb-tab" onclick="kbShow('forms',this)"><i class="fas fa-file-alt"></i> Forms</button>
+  </div>
+
+  <!-- CALCULATORS -->
+  <div id="kb-calc" class="kb-panel kb-open">
+    <div class="kb-panel-body">
+      <div class="kb-cat">GST Calculators</div>
+
+
+      <div class="kb-links">
+        <a href="javascript:void(0);" onclick="openGSTModal()" class="kb-a"><i class="fas fa-arrow-right"></i>GST Calculator</a>
+        <a href="https://rrassociates.co/resources/Calculators/Gst_mrp_calculator/Gst_mrp_calculator.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>GST MRP Calculator</a>
+        <a href="https://rrassociates.co/resources/Calculators/Gst_rate_calculator/Gst_rate_calculator.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>GST Rate Calculator</a>
+      </div>
+      <div class="kb-cat">Tax Calculators</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Calculators/Tax_Calculator/cal_Income_Tax.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Tax Calculator</a>
+        <a href="https://rrassociates.co/resources/Calculators/TDS_Calculator/TDS_Calculator2020.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>TDS Calculator</a>
+        <a href="https://rrassociates.co/resources/Calculators/HRA/HRA.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>HRA Calculator</a>
+      </div>
+      <div class="kb-cat">Financial Calculators</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Calculators/Calculate_Net_Profit/Calculate_Net_Profit.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Calculate Net Profit</a>
+        <a href="https://rrassociates.co/resources/Calculators/Calculate_Net_Worth/Calculate_Net_Worth.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Calculate Net Worth</a>
+        <a href="https://rrassociates.co/resources/Calculators/Calculate_Effective_Capital/Calculate_Effective_Capital.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Effective Capital</a>
+        <a href="https://rrassociates.co/resources/Calculators/NSC/Cal_NSC.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>NSC Calculator</a>
+        <a href="https://rrassociates.co/resources/Calculators/EMI/EMI.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>EMI Calculator</a>
+        <a href="https://rrassociates.co/resources/Calculators/Auto_Loan_Calculator/AutoLoan.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Auto Loan Calculator</a>
+        <a href="https://rrassociates.co/resources/Calculators/Home_Loan_Calculator/HomeLoanCalculator.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Home Loan Calculator</a>
+        <a href="https://rrassociates.co/resources/Calculators/Get_No._Of_Instalment/Get_No_Of_Instalment.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Get No. of Instalments</a>
+      </div>
+      <div class="kb-cat">RERA Calculators</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Calculators/RERA_Calculator/Developers_Calculator/RERADEVELOPER.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Developers Calculator</a>
+        <a href="https://rrassociates.co/resources/Calculators/RERA_Calculator/HomeBuyerDelayIntrest_Calculator/HomeBuyerDelayIntrest.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Home Buyer Delay Interest</a>
+        <a href="https://rrassociates.co/resources/Calculators/RERA_Calculator/HomeBuyerRefund/HomeBuyerRefund.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Home Buyer Refund</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BULLETINS -->
+  <div id="kb-bull" class="kb-panel">
+    <div class="kb-panel-body">
+      <div class="kb-cat">Regulatory</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Bulletins/RBISEBI/RBISEBI.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>RBI SEBI</a>
+        <a href="https://rrassociates.co/notificationsearch/Bulletins/Notification/BullNotification/Notification.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Notification</a>
+        <a href="https://rrassociates.co/notificationsearch/Bulletins/Circular/BullNotification/Circular.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Circular</a>
+      </div>
+      <div class="kb-cat">Tax</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Bulletins/Income_Tax/Income_Tax.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Income Tax</a>
+        <a href="https://rrassociates.co/resources/Bulletins/Service_Tax/Service_Tax.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Service Tax</a>
+        <a href="https://rrassociates.co/resources/Bulletins/Central_Sales_Tax/Central_Sales_Tax.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Central Sales Tax</a>
+        <a href="https://rrassociates.co/resources/Bulletins/Excise_Matters/Excise_Matters.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Excise Matters</a>
+        <a href="https://rrassociates.co/resources/Bulletins/Customs/Customs.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Customs</a>
+      </div>
+      <div class="kb-cat">Corporate &amp; Other</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Bulletins/Corporate_Matters/Corporate_Matters.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Company Law</a>
+        <a href="https://rrassociates.co/resources/Bulletins/Labour_Laws/Labour_Laws.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Labour Laws</a>
+        <a href="https://rrassociates.co/resources/Bulletins/F_E_M_A/F_E_M_A.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>FEMA</a>
+        <a href="https://rrassociates.co/resources/Bulletins/News_on_LLP/News_on_LLP.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>The LLP Act 2008</a>
+        <a href="https://rrassociates.co/resources/Bulletins/Accounting_Standards_INDAS/Accounting_Standards_INDAS.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Accounting Standard (INDAS)</a>
+        <a href="https://rrassociates.co/resources/Bulletins/Other/Other.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Others</a>
+      </div>
+      <div class="kb-cat">GST</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Bulletins/GST/GST.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>GST</a>
+        <a href="https://rrassociates.co/resources/Bulletins/IGST/.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>IGST</a>
+        <a href="https://rrassociates.co/resources/Bulletins/UTGST/.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>UTGST</a>
+        <a href="https://rrassociates.co/resources/Bulletins/Compensation_Cess/.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Compensation Cess</a>
+        <a href="https://rrassociates.co/resources/Bulletins/IBC_Regulation/.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>IBC Regulation</a>
+      </div>
+      <div class="kb-cat">VAT</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Bulletins/Delhi_VAT/Delhi_VAT.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Delhi VAT</a>
+        <a href="https://rrassociates.co/resources/Bulletins/Mumbai_VAT/Mumbai_VAT.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Maharashtra VAT</a>
+        <a href="https://rrassociates.co/resources/Bulletins/Gujarat_VAT/.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Gujarat VAT</a>
+        <a href="https://rrassociates.co/resources/Bulletins/Telangana_VAT/.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Telangana VAT</a>
+        <a href="https://rrassociates.co/resources/Bulletins/TamilNadu_VAT/.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Tamil Nadu VAT</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- UTILITIES -->
+  <div id="kb-util" class="kb-panel">
+    <div class="kb-panel-body">
+      <div class="kb-cat">Tax Rates</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Utilities/Rates_of_TDS/Rates_of_TDS.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Rates of TDS</a>
+        <a href="https://rrassociates.co/resources/Utilities/TDS_Rates_for_N_R_I_us_195/TDS_Rates_for_N_R_I_us_195.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>TDS Rates for N.R.I u/s 195</a>
+        <a href="https://rrassociates.co/resources/Utilities/Rates_of_Income_Tax/Rates_of_Income_Tax.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Rates of Income Tax</a>
+        <a href="https://rrassociates.co/resources/Utilities/RATES_OF_DEPRECIATION/RATES_OF_DEPRECIATION.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Depreciation Rates – Companies Act</a>
+        <a href="https://rrassociates.co/resources/Utilities/RATES_OF_DEPRECIATION_2/RATES_OF_DEPRECIATION_2.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Depreciation Rates – Income Tax Act</a>
+        <a href="https://rrassociates.co/resources/Utilities/COST_INFLATION_INDEX/COST_INFLATION_INDEX.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Cost Inflation Index</a>
+        <a href="https://rrassociates.co/resources/Utilities/CALCULATION_OF_INTEREST_ON_NSC/CALCULATION_OF_INTEREST_ON_NSC.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Rates of NSC Interest</a>
+        <a href="https://rrassociates.co/resources/Utilities/Rates_of_stamp_duty/Rates_of_stamp_duty.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Rates of Stamp Duty</a>
+        <a href="https://rrassociates.co/resources/Utilities/Comparison_of_Deduction_Under_Section_80TTA_and_80TTB/Comparison_of_Deduction_Under_Section_80TTA_and_80TTB.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Deduction u/s 80TTA vs 80TTB</a>
+      </div>
+      <div class="kb-cat">ROC &amp; Company</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Utilities/Filingfees/Filingfees.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>ROC Filing Fees (Cos Act, 2013)</a>
+        <a href="https://rrassociates.co/resources/Utilities/Penalty_for_Late_Filing_in_ROC/Penalty_for_Late_Filing_in_ROC.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>ROC Fee Structure (Cos Act, 2013)</a>
+        <a href="https://rrassociates.co/resources/Utilities/Limited_Liability_Partnership_Fees/Limited_Liability_Partnership_Fees.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>LLP Fees</a>
+        <a href="https://rrassociates.co/resources/Utilities/NIC/NIC.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>National Industries Classification</a>
+        <a href="https://rrassociates.co/resources/Utilities/HSN_RATE_LIST/HSN_RATE_LIST.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>HSN Rate List</a>
+        <a href="https://rrassociates.co/resources/Utilities/Gold_Silver_Rates/Gold_Silver_Rates.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Gold and Silver Rates</a>
+      </div>
+      <div class="kb-cat">Banking Codes</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Utilities/IFSC_Codes/IFSC_Codes.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>IFSC Codes</a>
+        <a href="https://rrassociates.co/resources/Utilities/MICR_Codes/MICR_Codes.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>MICR Codes</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINKS -->
+  <div id="kb-lnks" class="kb-panel">
+    <div class="kb-panel-body">
+      <div class="kb-cat">Quick Access</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Links/Quick_Link/Quick_Link.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Quick Links</a>
+        <a href="https://rrassociates.co/resources/Links/important_links/important_links.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Important Links</a>
+        <a href="https://rrassociates.co/resources/Links/Vat_Links/Vat_Links.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>GST / VAT Links</a>
+        <a href="https://rrassociates.co/resources/Links/EASE_OF_DOING_BUSINESS/EASE_OF_DOING_BUSINESS.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Ease of Doing Business</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTS -->
+  <div id="kb-acts" class="kb-panel">
+    <div class="kb-panel-body">
+      <div class="kb-cat">Direct Tax</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/laws/-26/Income_Tax_Act.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Income Tax Act</a>
+        <a href="https://rrassociates.co/laws/-75/Wealth_Tax_Act.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Wealth Tax Act</a>
+        <a href="https://rrassociates.co/laws/-157/Income_Declaration_Scheme_2016.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Income Declaration Scheme 2016</a>
+        <a href="https://rrassociates.co/laws/-260/Income_tax_2025.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Income Tax 2025</a>
+      </div>
+      <div class="kb-cat">Indirect Tax</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/laws/-30/Service_Tax_Act.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Service Tax (Finance Act, 1994)</a>
+        <a href="https://rrassociates.co/laws/-36/Central_Sales_Tax_Act,_1956.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Central Sales Tax Act, 1956</a>
+        <a href="https://rrassociates.co/laws/-40/The_Central_Excise_Act,_1944.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>The Central Excise Act, 1944</a>
+        <a href="https://rrassociates.co/laws/-53/Customs_Act,_1962.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Customs Act, 1962</a>
+        <a href="https://rrassociates.co/laws/-102/Entry_Tax_Act.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Entry Tax Act</a>
+      </div>
+      <div class="kb-cat">GST Laws</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/laws/-162/IGST_Act_2017.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>IGST Act, 2017</a>
+        <a href="https://rrassociates.co/laws/-164/Central_Goods_and_Services_Tax_Act_2017.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>CGST Act, 2017</a>
+        <a href="https://rrassociates.co/laws/-186/Union_Territory_Goods_and_Services_Tax_Act_2017.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>UTGST Act, 2017</a>
+        <a href="https://rrassociates.co/laws/-187/GST_Compensation_to_States_Act_2017.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>GST (Compensation to States) Act</a>
+      </div>
+      <div class="kb-cat">Corporate Laws</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/laws/-103/Companies_Act_2013.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Companies Act, 2013</a>
+        <a href="https://rrassociates.co/laws/-42/Companies_Act,_1956.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Companies Act, 1956</a>
+        <a href="https://rrassociates.co/laws/-48/The_Limited_Liability_Partnership_ACT,_2008.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>LLP Act, 2008</a>
+        <a href="https://rrassociates.co/laws/-59/The_Securities_and_Exchange_Board_of_India_Act,_1992.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>SEBI Act, 1992</a>
+      </div>
+      <div class="kb-cat">VAT Laws</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/laws/-32/Delhi_Value_Added_Tax_Act,_2004.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Delhi VAT Act, 2004</a>
+        <a href="https://rrassociates.co/laws/-39/Maharashtra_Value_Added_Tax_Act_(2002).aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>MVAT Act, 2002</a>
+        <a href="https://rrassociates.co/laws/-49/West_Bengal_Value_Added_Tax_Act,_2003.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>West Bengal VAT Act, 2003</a>
+        <a href="https://rrassociates.co/laws/-152/Tamilnadu_VAT_ACT_2006.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Tamilnadu VAT Act, 2006</a>
+        <a href="https://rrassociates.co/laws/-89/Karnataka_Value_Added_Tax_Act,_2003.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Karnataka VAT Act, 2003</a>
+        <a href="https://rrassociates.co/laws/-150/Gujarat_Value_Added_Tax_Act_2003.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Gujarat VAT Act, 2003</a>
+        <a href="https://rrassociates.co/laws/-46/The_Uttar_Pradesh_Value_Added_Tax_Act_2008.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>UP VAT Act, 2008</a>
+        <a href="https://rrassociates.co/laws/-94/Rajasthan_Value_Added_Tax_Act,_2003.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Rajasthan VAT Act, 2003</a>
+        <a href="https://rrassociates.co/laws/-65/Punjab_Value_Added_Tax_Act.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Punjab VAT Act</a>
+        <a href="https://rrassociates.co/laws/-68/Haryana_Value_Added_Tax_Act.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Haryana VAT Act</a>
+        <a href="https://rrassociates.co/laws/-148/Telangana_VAT_Act_2005.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Telangana VAT Act, 2005</a>
+        <a href="https://rrassociates.co/laws/-81/Andhra_Pradesh_Value_Added_Tax_Act,_2005.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Andhra Pradesh VAT Act, 2005</a>
+        <a href="https://rrassociates.co/laws/-91/Bihar_Value_Added_Tax_Act,_2005.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Bihar VAT Act, 2005</a>
+      </div>
+      <div class="kb-cat">Other Statutes</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/laws/-57/The_Employees_State_Insurance_Act,_1948.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>ESI Act, 1948</a>
+        <a href="https://rrassociates.co/laws/-58/The_Employees_Provident_Funds_and_Miscellaneous_Provisions_Act,_1952.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>PF Act, 1952</a>
+        <a href="https://rrassociates.co/laws/-98/Profession_Tax_Act.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Profession Tax Act</a>
+        <a href="https://rrassociates.co/laws/-114/The_Indian_Partnership_Act_1932.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>The Indian Partnership Act, 1932</a>
+        <a href="https://rrassociates.co/laws/-116/Societies_Registration_Act_1860.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Societies Registration Act, 1860</a>
+        <a href="https://rrassociates.co/laws/-118/Competition_Act_2002.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Competition Act, 2002</a>
+        <a href="https://rrassociates.co/laws/-119/Reserve_Bank_of_India_Act_1934.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Reserve Bank of India Act, 1934</a>
+        <a href="https://rrassociates.co/laws/-120/Monopolies_and_Restrictive_Trade_Practices_Act_1969.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>MRTP Act, 1969</a>
+        <a href="https://rrassociates.co/laws/-154/Equalisation_Levy_Act_2016.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Equalisation Levy Act, 2016</a>
+        <a href="https://rrassociates.co/laws/-33/Right_To_Information_Act,_2005.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Right to Information Act, 2005</a>
+        <a href="https://rrassociates.co/laws/-101/Foreign_Exchange_Management_Act_1999.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>FEMA, 1999</a>
+        <a href="https://rrassociates.co/laws/-210/Maharashtra_Real_Estate_Regulatory_Authority_and_Rules.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Maharashtra RERA</a>
+        <a href="https://rrassociates.co/laws/-214/THE_REAL_ESTATE_REGULATION_AND_DEVELOPMENT_ACT_2016.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>RERA, 2016</a>
+        <a href="https://rrassociates.co/laws/-220/The_Insolvency_and_Bankruptcy_Code_2016.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Insolvency &amp; Bankruptcy Code, 2016</a>
+        <a href="https://rrassociates.co/laws/-244/Prohibition_Of_Benami_Property_Transaction_Act_1988.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Benami Property Act, 1988</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RULES -->
+  <div id="kb-rules" class="kb-panel">
+    <div class="kb-panel-body">
+      <div class="kb-cat">Direct Tax Rules</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/laws/-29/Income_Tax_Rules.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Income Tax Rules</a>
+        <a href="https://rrassociates.co/laws/-76/Wealth_Tax_Rules_1957.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Wealth Tax Rules 1957</a>
+        <a href="https://rrassociates.co/laws/-155/Income_Declaration_Scheme_Rules_2016.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Income Declaration Scheme Rules 2016</a>
+      </div>
+      <div class="kb-cat">Indirect Tax Rules</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/laws/-163/GST_Valuation_Rules_2016.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>GST Valuation Rules, 2016</a>
+        <a href="https://rrassociates.co/laws/-31/Service_Tax_Rules.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Service Tax Rules</a>
+        <a href="https://rrassociates.co/laws/-37/Central_Sales_Tax_(Delhi)_Rules,_2005.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>CST (Delhi) Rules, 2005</a>
+        <a href="https://rrassociates.co/laws/-41/Central_Sales_Tax_(Maharashtra)_Rules.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>CST (Maharashtra) Rules</a>
+        <a href="https://rrassociates.co/laws/-55/Customs_Valuation_Rules.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Customs Valuation Rules</a>
+        <a href="https://rrassociates.co/laws/-133/Cenvat_Credit_Rules_2017.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Cenvat Credit Rules, 2017</a>
+        <a href="https://rrassociates.co/laws/-96/Entry_Tax_Rules.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Entry Tax Rules</a>
+      </div>
+      <div class="kb-cat">GST Rules</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/laws/-193/Central_Goods_and_Services_Tax_rule_2017.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>CGST Rules, 2017</a>
+        <a href="https://rrassociates.co/laws/-246/IGST_Rules_2017.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>IGST Rules, 2017</a>
+      </div>
+      <div class="kb-cat">Corporate Laws Rules</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/laws/-104/Companies_Rules_2014.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Companies Rules, 2014</a>
+        <a href="https://rrassociates.co/laws/-84/Limited_Liability_Partnership_Rules,_2009.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>LLP Rules, 2009</a>
+        <a href="https://rrassociates.co/laws/-111/LLP_Winding_up_Rules_2012.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>LLP Winding up Rules, 2012</a>
+        <a href="https://rrassociates.co/laws/-115/The_Companies_Unpaid_Dividend_Rules_1978.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Cos Unpaid Dividend Rules, 1978</a>
+      </div>
+      <div class="kb-cat">VAT Laws Rules</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/laws/-35/Delhi_Value_Added_Tax_Rules,_2005.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Delhi VAT Rules, 2005</a>
+        <a href="https://rrassociates.co/laws/-38/Maharashtra_Value_Added_Tax_Rules,_2005.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Maharashtra VAT Rules, 2005</a>
+        <a href="https://rrassociates.co/laws/-50/The_West_Bengal_Value_Added_Tax_Rules,_2005.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>West Bengal VAT Rules, 2005</a>
+        <a href="https://rrassociates.co/laws/-153/Tamilnadu_VAT_Rules_2007.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Tamilnadu VAT Rules, 2007</a>
+        <a href="https://rrassociates.co/laws/-88/Karnataka_Value_Added_Tax_Rules,_2005.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Karnataka VAT Rules, 2005</a>
+        <a href="https://rrassociates.co/laws/-151/Gujarat_Value_Added_Tax_Rules_2006.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Gujarat VAT Rules, 2006</a>
+        <a href="https://rrassociates.co/laws/-56/The_Uttar_Pradesh_Value_Added_Tax_Rules,_2008.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Uttar Pradesh VAT Rules, 2008</a>
+        <a href="https://rrassociates.co/laws/-95/Rajasthan_Value_Added_Tax_Rules,_2006.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Rajasthan VAT Rules, 2006</a>
+        <a href="https://rrassociates.co/laws/-66/Punjab_Value_Added_Tax_Rules.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Punjab VAT Rules</a>
+        <a href="https://rrassociates.co/laws/-83/Haryana_Value_Added_Tax_Rules,_2003.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Haryana VAT Rules, 2003</a>
+        <a href="https://rrassociates.co/laws/-149/Telangna_VAT_Rules_2005.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Telangana VAT Rules, 2005</a>
+        <a href="https://rrassociates.co/laws/-82/Andhra_Pradesh_Value_Added_Tax_Rules,_2005.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Andhra Pradesh VAT Rules, 2005</a>
+        <a href="https://rrassociates.co/laws/-90/Bihar_Value_Added_Tax_Rules,_2005.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Bihar VAT Rules, 2005</a>
+      </div>
+      <div class="kb-cat">Other Statutes Rules</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/laws/-100/Profession_Tax_Rules.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Profession Tax Rules</a>
+        <a href="https://rrassociates.co/laws/-126/NBFC_Acceptance_of_Public_Deposits_Reserve_Bank_Directions_1998.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>NBFC Deposits Directions, 1998</a>
+        <a href="https://rrassociates.co/laws/-127/NBFC_and_Miscellaneous_Non-Banking_Companies_Advertisement_Rules_1977.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>NBFC &amp; Misc NBC (Advt) Rules, 1977</a>
+        <a href="https://rrassociates.co/laws/-128/Non-Banking_Financial_Companies_Auditors_Report_Reserve_Bank_Directions_2008.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>NBFC Auditor Report Directions, 2008</a>
+        <a href="https://rrassociates.co/laws/-129/Delhi_Labour_Welfare_Fund_Rules_1997.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Delhi Labour Welfare Fund Rules, 1997</a>
+        <a href="https://rrassociates.co/laws/-130/Cost_records_and_audit_Rules_2014.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Cost Records &amp; Audit Rules, 2014</a>
+        <a href="https://rrassociates.co/laws/-54/Baggage_Amendment_Rules_2016.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Baggage Rules, 2016</a>
+        <a href="https://rrassociates.co/laws/-156/Equalisation_Levy_Rules_2016.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Equalisation Levy Rules, 2016</a>
+        <a href="https://rrassociates.co/laws/-216/NCLT_And_NCLAT_Rules.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>NCLT and NCLAT Rules</a>
+        <a href="https://rrassociates.co/laws/-243/The_Insolvency_and_Bankruptcy_of_India_Rules.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Insolvency &amp; Bankruptcy Rules</a>
+        <a href="https://rrassociates.co/laws/-245/Prohibition_Of_Benami_Property_Rules_Transaction_Rules_2016.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Benami Property Rules, 2016</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMS -->
+  <div id="kb-forms" class="kb-panel">
+    <div class="kb-panel-body">
+      <div class="kb-cat">Tax &amp; Other Forms</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Forms/Income_Tax_Forms/Income_Tax_Forms.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Income Tax Forms</a>
+        <a href="https://rrassociates.co/resources/Forms/income_declaration_form/income_declaration_form.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Income Declaration Forms</a>
+        <a href="https://rrassociates.co/resources/Forms/Wealth_Tax_Forms/Wealth_Tax_Forms.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Wealth Tax Forms</a>
+        <a href="https://rrassociates.co/resources/Forms/Service_Tax_Forms/Service_Tax_Forms.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Service Tax Forms</a>
+        <a href="https://rrassociates.co/resources/Forms/FEMA/FEMA.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>FEMA Forms</a>
+        <a href="https://rrassociates.co/resources/Forms/NBFC_Forms/NBFC_Forms.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>NBFCs Forms</a>
+      </div>
+      <div class="kb-cat">Company &amp; LLP Forms</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Forms/ROC_Forms_As_per_Companies_Act_2013/ROC_Forms_As_per_Companies_Act_2013.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>ROC Forms (Cos Act, 2013)</a>
+        <a href="https://rrassociates.co/resources/Forms/ROC_Forms_1956/ROC_Forms_1956.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>ROC Forms (Cos Act, 1956)</a>
+        <a href="https://rrassociates.co/resources/Forms/Companies_Unpaid_Dividend_Forms/Companies_Unpaid_Dividend_Forms.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Companies Unpaid Dividend Forms</a>
+        <a href="https://rrassociates.co/resources/Forms/LLP_Forms/LLP_Forms.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>LLP Forms</a>
+        <a href="https://rrassociates.co/resources/Forms/LLP_winding_up_forms/LLP_winding_up_forms.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>LLP Winding Up Forms</a>
+      </div>
+      <div class="kb-cat">CGST Forms</div>
+      <div class="kb-links">
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/GST_Forms/GST_Forms.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>GST Forms</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Registration_Forms/Registration_Forms.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Registration</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Returns/Returns.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Returns</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Payment_of_Tax/Payment_of_Tax.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Payment of Tax</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Input_Tax_Credit_Forms/Input_Tax_Credit_Forms.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Input Tax Credit</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Refund/Refund.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Refund</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Assessment_and_Audit/Assessment_and_Audit.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Assessment and Audit</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Accounts_and_Records/Accounts_and_Records.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Accounts and Records</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Advance_Rulling/Advance_Rulling.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Advance Ruling</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Appeals_and_Revision/Appeals_and_Revision.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Appeals and Revision</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Composition_Forms/Composition_Forms.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Composition</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Demands_and_recovery/Demands_and_recovery.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Demands and Recovery</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Inspection_Search_and_Seizure/Inspection_Search_and_Seizure.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Inspection, Search and Seizure</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Offences_and_Penalties/Offences_and_Penalties.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Offences and Penalties</a>
+        <a href="https://rrassociates.co/resources/Forms/CGST_Forms/Transitional_Provisions/Transitional_Provisions.aspx" target="_blank" class="kb-a"><i class="fas fa-arrow-right"></i>Transitional Provisions</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+function kbShow(id, btn) {
+  document.querySelectorAll('.kb-panel').forEach(p => p.classList.remove('kb-open'));
+  document.querySelectorAll('.kb-tab').forEach(t => t.classList.remove('kb-active'));
+  document.getElementById('kb-' + id).classList.add('kb-open');
+  btn.classList.add('kb-active');
+}
+</script>
+
+<!-- TRUST -->
+<section id="trust">
+  <div class="trust-inner fade-up">
+    <div class="section-tag" style="justify-content:center"><div class="section-tag-line"></div><span>Our Promise</span><div class="section-tag-line"></div></div>
+    <div class="trust-quote">"We don't just file returns — we build <em>financial fortresses</em> around our clients' interests."</div>
+    <div class="trust-attrs">— R. Ramalingam, Founder &amp; Managing Partner</div>
+    <div class="trust-logos">
+      <div class="trust-logo-item"><div class="trust-logo-icon"><i class="fas fa-building"></i></div><div class="trust-logo-label">Corporates</div></div>
+      <div class="trust-logo-item"><div class="trust-logo-icon"><i class="fas fa-users"></i></div><div class="trust-logo-label">Individuals</div></div>
+      <div class="trust-logo-item"><div class="trust-logo-icon"><i class="fas fa-globe"></i></div><div class="trust-logo-label">NRI Clients</div></div>
+      <div class="trust-logo-item"><div class="trust-logo-icon"><i class="fas fa-network-wired"></i></div><div class="trust-logo-label">LLPs &amp; Firms</div></div>
+      <div class="trust-logo-item"><div class="trust-logo-icon"><i class="fas fa-plane"></i></div><div class="trust-logo-label">Foreign Nationals</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag"><div class="section-tag-line"></div><span>Get in Touch</span></div>
+  <h2 class="section-title">Let's <em>work</em> together</h2>
+  <div class="contact-grid">
+    <div class="contact-info fade-up">
+      <div class="contact-item">
+        <div class="contact-item-icon"><i class="fas fa-location-dot"></i></div>
+        <div><strong>Head Office</strong><span>2nd Floor, No. 95, Poes Main Road, Teynampet, Chennai – 600 018</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i class="fas fa-location-dot"></i></div>
+        <div><strong>Branch Office</strong><span>16, Vyasar Street, 1st Floor, T. Nagar, Chennai – 600 017</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
+        <div><strong>Working Hours</strong>
+          <div class="contact-hours">
+            <span class="open">● Open Today</span>
+            <span>Monday – Saturday: 9:30 AM – 7:00 PM</span>
+            <span>Sunday: Closed</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+        <div><strong>Phone</strong><span>+91 94440 36149 &nbsp;·&nbsp; +91 98946 51221</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+        <div><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="592b3834383530373e3834382a2a363a30382d3c2a192038313636773a36773037">[email&#160;protected]</a></span></div>
+      </div>
+    </div>
+    <div class="contact-form fade-up" style="transition-delay:0.15s">
+      <div class="form-row">
+        <div class="form-field"><label>Full Name</label><input type="text" placeholder="Your name"></div>
+        <div class="form-field"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label>Phone Number</label><input type="tel" placeholder="+91 00000 00000"></div>
+        <div class="form-field"><label>Service Interested In</label>
+          <select>
+            <option value="">Select a service...</option>
+            <option>Direct Tax Consultancy</option>
+            <option>Indirect Tax &amp; GST</option>
+            <option>Audit &amp; Assurance</option>
+            <option>Risk Advisory</option>
+            <option>Corporate &amp; Secretarial</option>
+            <option>Business Advisory</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-field"><label>Message</label><textarea placeholder="Briefly describe your requirement…"></textarea></div>
+      <button class="form-submit">Send Message <i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <strong>R. Ramalingam &amp; Associates</strong>
+      <span>Chartered Accountants</span>
+      <p>Premier professional services firm established in 2004. Empowering businesses with precision, integrity, and excellence.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <a onclick="openService('direct')">Direct Tax</a>
+      <a onclick="openService('indirect')">Indirect Tax &amp; GST</a>
+      <a onclick="openService('audit')">Audit &amp; Assurance</a>
+      <a onclick="openService('risk')">Risk Advisory</a>
+      <a onclick="openService('corporate')">Corporate &amp; Secretarial</a>
+      <a onclick="openService('advisory')">Business Advisory</a>
+    </div>
+    <div class="footer-col">
+      <h5>Knowledge Bank</h5>
+      <a href="javascript:void(0);" onclick="openGSTModal()">Calculators</a>
+      <a href="https://rrassociates.co/laws/-26/Income_Tax_Act.aspx" target="_blank">Acts &amp; Laws</a>
+      <a href="https://rrassociates.co/resources/Bulletins/Income_Tax/Income_Tax.aspx" target="_blank">Bulletins</a>
+      <a href="https://rrassociates.co/resources/Utilities/Rates_of_TDS/Rates_of_TDS.aspx" target="_blank">Utilities</a>
+      <a href="https://rrassociates.co/resources/Bulletins/GST/GST.aspx" target="_blank">GST Resources</a>
+      <a href="https://rrassociates.co/resources/Forms/Income_Tax_Forms/Income_Tax_Forms.aspx" target="_blank">Forms</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a onclick="showMain();document.getElementById('about').scrollIntoView({behavior:'smooth'})">About Us</a>
+      <a onclick="showMain();document.getElementById('team').scrollIntoView({behavior:'smooth'})">Our Team</a>
+      <a href="https://rrassociates.co/resource/Career.aspx" target="_blank">Careers</a>
+      <a onclick="showMain();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</a>
+      <a href="https://rrassociates.co/Login.aspx" target="_blank">Admin Login</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 R. Ramalingam &amp; Associates. All rights reserved. · Chennai, India</p>
+    <div class="footer-socials">
+      <a href="#" class="footer-social"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="footer-social"><i class="fab fa-twitter"></i></a>
+      <a href="/cdn-cgi/l/email-protection#2a584b474b4643444d4b474b59594549434b5e4f596a534b424545044945044344" class="footer-social"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /main-content -->
+
+<!-- SERVICE DETAIL -->
+
+<button onclick="closeServiceModal()" 
+style="position:fixed;top:30px;right:40px;background:none;border:none;color:#ffffff;font-size:28px;cursor:pointer;z-index:10000;">×</button>
+
+<div id="svc-detail"><div id="svc-modal-container" style="background:#0e0e0e;max-width:1200px;margin:80px auto;padding:60px 50px;box-shadow:0 0 40px rgba(0,0,0,0.6);border-radius:8px;position:relative;"> style="display:none;background:var(--ink);padding:100px 8vw;min-height:100vh">
+  <button class="svc-back" onclick="closeService()"><i class="fas fa-arrow-left"></i> Back to All Services</button>
+
+  <!-- 01 DIRECT TAX -->
+  <div id="svc-direct" class="svc-page">
+    <div class="svc-hero">
+      <div>
+        <div class="svc-hero-label">01 — Direct Tax Consultancy Services</div>
+        <div class="svc-hero-icon"><i class="fas fa-landmark"></i></div>
+        <h2 class="svc-hero-title">Direct Tax <em>Consultancy</em></h2>
+        <p class="svc-hero-desc">We offer comprehensive direct tax advisory and compliance services tailored to corporates, LLPs, firms, individuals, NRIs, and foreign nationals. Our expertise spans across domestic and international tax matters, ensuring effective solutions in a dynamic regulatory environment.</p>
+      </div>
+      <div class="svc-keypoints">
+        <div class="svc-keypoint"><i class="fas fa-file-invoice svc-kp-icon"></i><div><strong>Income Tax Return Filing</strong><span>Preparation and filing of income tax returns for corporates, LLPs, firms, individuals, NRIs, and foreign nationals.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-scale-balanced svc-kp-icon"></i><div><strong>Representation Before Tax Authorities</strong><span>Representation before CIT (Appeals), Dispute Resolution Panel (DRP), and ITAT — covering assessments, appellate matters, and Benami Transactions Act.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-globe svc-kp-icon"></i><div><strong>International Tax &amp; Transfer Pricing</strong><span>Advisory on international tax implications, transfer pricing documentation, compliance (Form 3CEB), and audit support.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-passport svc-kp-icon"></i><div><strong>India Entry Advisory</strong><span>Assistance for foreign entities entering the Indian market, including structuring, tax registration, and compliance.</span></div></div>
+      </div>
+    </div>
+    <div class="svc-offerings-title">Our <em>Service</em> Offerings</div>
+    <div class="svc-offerings-grid">
+      <div class="svc-offering"><div class="svc-offering-num">01</div><strong>Income Tax Return Filing</strong><span>Preparation and filing of income tax returns for corporates, LLPs, firms, individuals, NRIs, and foreign nationals.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">02</div><strong>Representation Before Tax Authorities</strong><span>Representation before CIT (Appeals), DRP, and ITAT covering assessments, appellate matters, and Benami Transactions (Prohibition) Act proceedings.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">03</div><strong>Strategic Tax Planning</strong><span>Personal and corporate tax planning to minimise liabilities while ensuring full compliance with current laws.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">04</div><strong>TDS &amp; Withholding Tax Services</strong><span>Advisory, compliance, and return filing related to TDS/withholding taxes, including employee and contractor payments.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">05</div><strong>International Tax &amp; Transfer Pricing</strong><span>Advisory on international tax implications, transfer pricing documentation, compliance (Form 3CEB), and audit support.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">06</div><strong>DTAA Advisory</strong><span>Expert guidance on treaty benefits under applicable Double Taxation Avoidance Agreements.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">07</div><strong>Foreign Remittance Certification</strong><span>Certification and support for foreign payments (Forms 15CB &amp; 15CA), ensuring compliance with FEMA and income tax laws.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">08</div><strong>Succession &amp; Estate Planning</strong><span>Structured solutions for wealth succession, business continuity, and inheritance planning.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">09</div><strong>India Entry Advisory</strong><span>Assistance for foreign entities entering the Indian market, including structuring, tax registration, and compliance.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">10</div><strong>STPI &amp; Softex Compliance</strong><span>STPI registration, return filing, Softex submissions, and related certifications for software exporters.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">11</div><strong>Tax Due Diligence</strong><span>Detailed tax due diligence for mergers, acquisitions, business reorganizations, and investor requirements — identifying potential exposures, compliance gaps, and tax liabilities.</span></div>
+    </div>
+    <div class="svc-cta"><div class="svc-cta-text"><strong>Ready to optimise your tax position?</strong><p>Our direct tax team is available Mon–Sat, 9:30 AM – 7:00 PM.</p></div><button class="btn-primary" onclick="closeService();showMain();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100)">Speak to an Expert <i class="fas fa-arrow-right"></i></button></div>
+  </div>
+
+  <!-- 02 INDIRECT TAX -->
+  <div id="svc-indirect" class="svc-page">
+    <div class="svc-hero">
+      <div>
+        <div class="svc-hero-label">02 — Indirect Tax Consultancy Services</div>
+        <div class="svc-hero-icon"><i class="fas fa-receipt"></i></div>
+        <h2 class="svc-hero-title">Indirect Tax <em>&amp; GST</em></h2>
+        <p class="svc-hero-desc">We offer end-to-end consultancy and compliance support under Goods and Services Tax (GST), catering to businesses across sectors. Our services are designed to ensure accurate compliance, optimise tax positions, and manage disputes effectively.</p>
+      </div>
+      <div class="svc-keypoints">
+        <div class="svc-keypoint"><i class="fas fa-lightbulb svc-kp-icon"></i><div><strong>GST Advisory &amp; Tax Planning</strong><span>Strategic consultation on GST applicability, classification, input tax credit (ITC) planning, and transaction structuring.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-file-alt svc-kp-icon"></i><div><strong>GST Return Preparation &amp; Filing</strong><span>Preparation and filing of all GST returns including GSTR-1, GSTR-3B, GSTR-9, GSTR-9C, and reconciliation statements.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-gavel svc-kp-icon"></i><div><strong>Representation &amp; Litigation Support</strong><span>Assistance during departmental GST audits and representation before GST authorities during assessment or investigation proceedings.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-balance-scale svc-kp-icon"></i><div><strong>Appeals &amp; CESTAT Representation</strong><span>Drafting and filing appeals before Commissioner (Appeals) and representation before CESTAT for GST-related litigation.</span></div></div>
+      </div>
+    </div>
+    <div class="svc-offerings-title">Our <em>Service</em> Offerings</div>
+    <div class="svc-offerings-grid">
+      <div class="svc-offering"><div class="svc-offering-num">01</div><strong>GST Advisory &amp; Tax Planning</strong><span>Strategic consultation on GST applicability, classification, input tax credit (ITC) planning, and transaction structuring.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">02</div><strong>GST Return Preparation &amp; Filing</strong><span>Preparation and filing of all types of GST returns, including GSTR-1, GSTR-3B, GSTR-9, GSTR-9C, and reconciliation statements.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">03</div><strong>Assistance During Departmental GST Audits</strong><span>Representation before GST authorities during assessment or investigation proceedings, ensuring your interests are fully protected.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">04</div><strong>Appeals Before Commissioner (Appeals)</strong><span>Drafting, filing, and representation for appeals before the Commissioner of Central Excise &amp; GST (Appeals).</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">05</div><strong>Representation Before CESTAT</strong><span>Preparation of appeal documents, legal submissions, and appearance before CESTAT for GST-related litigation.</span></div>
+    </div>
+    <div class="svc-cta"><div class="svc-cta-text"><strong>Need GST support or a compliance review?</strong><p>Our indirect tax specialists are ready to assist your business.</p></div><button class="btn-primary" onclick="closeService();showMain();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100)">Speak to an Expert <i class="fas fa-arrow-right"></i></button></div>
+  </div>
+
+  <!-- 03 AUDIT -->
+  <div id="svc-audit" class="svc-page">
+    <div class="svc-hero">
+      <div>
+        <div class="svc-hero-label">03 — Audit &amp; Assurance Services</div>
+        <div class="svc-hero-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+        <h2 class="svc-hero-title">Audit <em>&amp; Assurance</em></h2>
+        <p class="svc-hero-desc">We provide a comprehensive range of audit and assurance services designed to meet regulatory requirements and deliver insights that add value to your organisation. Our audit methodology ensures integrity, transparency, and a risk-based approach aligned with best industry practices.</p>
+      </div>
+      <div class="svc-keypoints">
+        <div class="svc-keypoint"><i class="fas fa-building-columns svc-kp-icon"></i><div><strong>Statutory &amp; Government Audits</strong><span>Statutory audit of listed and unlisted corporations, government companies and PSUs (C&amp;AG audits), and nationalised and private banks.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-file-invoice-dollar svc-kp-icon"></i><div><strong>Tax &amp; Specialised Audits</strong><span>Tax audit under the Income Tax Act, audits under sections 80HHC, 80-IA, transfer pricing audit and certification, and IFRS convergence audits.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-search svc-kp-icon"></i><div><strong>Forensic &amp; Concurrent Audits</strong><span>Forensic audits for investigations and concurrent audit for banks and NBFCs to detect irregularities in real time.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-hand-holding-heart svc-kp-icon"></i><div><strong>Charitable &amp; Trust Audits</strong><span>Audit of charitable trusts, educational institutions, and other not-for-profit entities under applicable statutes.</span></div></div>
+      </div>
+    </div>
+    <div class="svc-offerings-title">Our <em>Service</em> Offerings</div>
+    <div class="svc-offerings-grid">
+      <div class="svc-offering"><div class="svc-offering-num">01</div><strong>Statutory Audit of Listed &amp; Unlisted Companies</strong><span>Statutory audit of listed and unlisted corporations in accordance with the Companies Act 2013 and applicable standards.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">02</div><strong>Government &amp; PSU Audit (C&amp;AG)</strong><span>Statutory audit of government companies and public sector undertakings under Comptroller and Auditor General directions.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">03</div><strong>Statutory Bank Audit</strong><span>Statutory bank audit of nationalised and private banks in compliance with RBI guidelines and the Banking Regulation Act.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">04</div><strong>Tax Audit (Income Tax Act)</strong><span>Tax audit under the Income Tax Act, and audits under other sections including 80HHC and 80-IA.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">05</div><strong>Charitable Trust &amp; Institution Audit</strong><span>Audit of charitable trusts, educational institutions, and similar entities under Section 12A, 80G, and related provisions.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">06</div><strong>Transfer Pricing Audit &amp; Certification</strong><span>Transfer pricing audit and Form 3CEB certification for international and specified domestic transactions.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">07</div><strong>IFRS Convergence Audits</strong><span>Audit support for companies transitioning to or reporting under IND AS/IFRS.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">08</div><strong>Forensic Audits</strong><span>Forensic audits to investigate financial irregularities, fraud, and misappropriation of funds.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">09</div><strong>Concurrent Audit — Banks &amp; NBFCs</strong><span>Real-time concurrent audit for banks and NBFCs to monitor transactions and detect irregularities promptly.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">10</div><strong>Revenue Leakage &amp; Stock Audit</strong><span>Revenue leakage audit and stock audit for banks and financial institutions to safeguard assets and ensure accuracy.</span></div>
+    </div>
+    <div class="svc-cta"><div class="svc-cta-text"><strong>Looking for a quality audit partner?</strong><p>We serve companies across manufacturing, financial services, government, and the not-for-profit sector.</p></div><button class="btn-primary" onclick="closeService();showMain();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100)">Speak to an Expert <i class="fas fa-arrow-right"></i></button></div>
+  </div>
+
+  <!-- 04 RISK ADVISORY -->
+  <div id="svc-risk" class="svc-page">
+    <div class="svc-hero">
+      <div>
+        <div class="svc-hero-label">04 — Risk Advisory Services</div>
+        <div class="svc-hero-icon"><i class="fas fa-shield-halved"></i></div>
+        <h2 class="svc-hero-title">Risk <em>Advisory</em></h2>
+        <p class="svc-hero-desc">We assist clients in identifying, assessing, and mitigating risks to enhance operational efficiency, strengthen internal controls, and support strategic decision-making.</p>
+      </div>
+      <div class="svc-keypoints">
+        <div class="svc-keypoint"><i class="fas fa-magnifying-glass svc-kp-icon"></i><div><strong>Risk-Based Internal Audits</strong><span>Systematic risk-based internal audits that provide management with actionable insights on controls and operational efficiency.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-shield-check svc-kp-icon"></i><div><strong>Internal Financial Controls (IFC/ICFR)</strong><span>Implementation and testing of Internal Financial Controls as required under the Companies Act 2013.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-laptop-code svc-kp-icon"></i><div><strong>Information Systems (IS) Audit</strong><span>Technology risk and IS audit to assess IT controls, cybersecurity posture, and data integrity within financial systems.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-university svc-kp-icon"></i><div><strong>Credit &amp; Risk Audits for Banks</strong><span>Risk and credit audits, data migration audits in CBS environments, KYC document audits, and back-office operations for retail advances.</span></div></div>
+      </div>
+    </div>
+    <div class="svc-offerings-title">Our <em>Service</em> Offerings</div>
+    <div class="svc-offerings-grid">
+      <div class="svc-offering"><div class="svc-offering-num">01</div><strong>Risk-Based Internal Audits</strong><span>Systematic risk-based internal audits providing actionable insights on controls, processes, and operational efficiency.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">02</div><strong>Risk Assessment &amp; Reviews</strong><span>Identification and evaluation of business, financial, and operational risk exposures across the organisation.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">03</div><strong>Internal Financial Controls (IFC/ICFR)</strong><span>Implementation and testing of Internal Financial Controls as required under the Companies Act 2013.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">04</div><strong>Information Systems (IS) Audit</strong><span>Assessment of IT general controls, application controls, cybersecurity posture, and data integrity within financial systems.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">05</div><strong>Internal Control &amp; Governance Review</strong><span>Review of internal control systems and governance frameworks with recommendations for strengthening controls.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">06</div><strong>SOP Definition &amp; Documentation</strong><span>Defining and documenting standard operating procedures (SOPs) across key business functions and processes.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">07</div><strong>ERP Process Review</strong><span>Review and control evaluation of ERP systems to ensure process integrity, access controls, and accurate financial reporting.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">08</div><strong>Credit &amp; Risk Audits for Banks</strong><span>Risk and credit audit, data migration audit in CBS environments, and KYC document audit for banks and financial services companies.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">09</div><strong>Back-Office Operations — Retail Advances</strong><span>Credit sanctions, disbursements, post-disbursement services including PDC deposition and reconciliation of accounts.</span></div>
+    </div>
+    <div class="svc-cta"><div class="svc-cta-text"><strong>Protect your business before risks become liabilities.</strong><p>Our risk advisory team works with banks, NBFCs, and businesses of all sizes across India.</p></div><button class="btn-primary" onclick="closeService();showMain();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100)">Speak to an Expert <i class="fas fa-arrow-right"></i></button></div>
+  </div>
+
+  <!-- 05 CORPORATE & SECRETARIAL -->
+  <div id="svc-corporate" class="svc-page">
+    <div class="svc-hero">
+      <div>
+        <div class="svc-hero-label">05 — Corporate &amp; Secretarial Services</div>
+        <div class="svc-hero-icon"><i class="fas fa-building-columns"></i></div>
+        <h2 class="svc-hero-title">Corporate <em>&amp; Secretarial</em></h2>
+        <p class="svc-hero-desc">Corporate law services encompass a wide range of legal advice and support tailored to businesses and corporations. We provide full-service secretarial support ensuring compliance with the Companies Act and all related corporate law requirements.</p>
+      </div>
+      <div class="svc-keypoints">
+        <div class="svc-keypoint"><i class="fas fa-building svc-kp-icon"></i><div><strong>Incorporation &amp; Business Setup</strong><span>End-to-end incorporation and business setup services for private limited companies, LLPs, OPCs, and other legal entities.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-handshake svc-kp-icon"></i><div><strong>Corporate Governance &amp; Transactions</strong><span>Advisory on corporate governance frameworks and transaction-related legal and compliance matters.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-folder-open svc-kp-icon"></i><div><strong>Secretarial Compliance &amp; Filings</strong><span>Secretarial compliance, statutory record maintenance, and periodic ROC filings under the Companies Act 2013.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-arrows-rotate svc-kp-icon"></i><div><strong>Corporate Restructuring</strong><span>Secretarial services relating to buy-back, liquidation, and other forms of corporate restructuring.</span></div></div>
+      </div>
+    </div>
+    <div class="svc-offerings-title">Our <em>Service</em> Offerings</div>
+    <div class="svc-offerings-grid">
+      <div class="svc-offering"><div class="svc-offering-num">01</div><strong>Incorporation &amp; Business Setup Services</strong><span>End-to-end company and LLP incorporation including DIN, DSC, name reservation, MOA/AOA drafting, and Certificate of Incorporation.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">02</div><strong>Corporate Governance &amp; Transactions Advisory</strong><span>Advisory on corporate governance frameworks, board structures, and compliance requirements for transactions and investments.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">03</div><strong>Secretarial Compliance &amp; Statutory Records</strong><span>Secretarial compliance management, maintenance of statutory registers, minute books, and all periodic ROC filings.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">04</div><strong>Buy-Back, Liquidation &amp; Restructuring</strong><span>Secretarial services relating to share buy-back, voluntary liquidation, winding up, and other forms of corporate restructuring.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">05</div><strong>Companies Act &amp; Corporate Law Advisory</strong><span>Advisory on the Companies Act 2013, related rules, and all corporate law matters affecting your business.</span></div>
+    </div>
+    <div class="svc-cta"><div class="svc-cta-text"><strong>Simplify your corporate compliance.</strong><p>We handle all MCA, ROC, and secretarial requirements so you can focus on growth.</p></div><button class="btn-primary" onclick="closeService();showMain();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100)">Speak to an Expert <i class="fas fa-arrow-right"></i></button></div>
+  </div>
+
+  <!-- 06 BUSINESS ADVISORY -->
+  <div id="svc-advisory" class="svc-page">
+    <div class="svc-hero">
+      <div>
+        <div class="svc-hero-label">06 — Business Advisory and Other Services</div>
+        <div class="svc-hero-icon"><i class="fas fa-chart-line"></i></div>
+        <h2 class="svc-hero-title">Business <em>Advisory</em></h2>
+        <p class="svc-hero-desc">We support businesses with strategic, financial, and operational advisory tailored to their evolving needs. Whether you're planning to scale, raise capital, or optimise — our advisory team brings commercial depth and technical rigour.</p>
+      </div>
+      <div class="svc-keypoints">
+        <div class="svc-keypoint"><i class="fas fa-book svc-kp-icon"></i><div><strong>Accounting Advisory</strong><span>Accounting advisory services and end-to-end accounting and bookkeeping services for businesses of all sizes.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-search-dollar svc-kp-icon"></i><div><strong>Transaction Advisory &amp; Due Diligence</strong><span>Transaction advisory services including financial due diligence for M&amp;A, investments, and business reorganisations.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-user-tie svc-kp-icon"></i><div><strong>CFO Advisory &amp; MIS Reporting</strong><span>CFO advisory services including preparation of business plans, cash flow projections, budget preparation, and forecasting.</span></div></div>
+        <div class="svc-keypoint"><i class="fas fa-landmark svc-kp-icon"></i><div><strong>Loan Syndication &amp; Financial Support</strong><span>Loan syndication services and comprehensive financial support to help businesses access the right funding solutions.</span></div></div>
+      </div>
+    </div>
+    <div class="svc-offerings-title">Our <em>Service</em> Offerings</div>
+    <div class="svc-offerings-grid">
+      <div class="svc-offering"><div class="svc-offering-num">01</div><strong>Accounting Advisory Services</strong><span>Expert advisory on accounting policies, treatments, and standards to ensure accurate and compliant financial reporting.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">02</div><strong>Transaction Advisory &amp; Financial Due Diligence</strong><span>Transaction advisory including buy-side and sell-side financial due diligence for M&amp;A, investments, and reorganisations.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">03</div><strong>End-to-End Accounting &amp; Bookkeeping</strong><span>Complete accounting and bookkeeping services — from daily transactions to monthly financials and annual accounts.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">04</div><strong>CFO Advisory Services</strong><span>Part-time and project-based CFO advisory for growing businesses needing financial leadership without the full-time cost.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">05</div><strong>MIS Reporting &amp; Business Planning</strong><span>Preparation of business plans, cash flow projections, budgets, and management information system (MIS) reports.</span></div>
+      <div class="svc-offering"><div class="svc-offering-num">06</div><strong>Loan Syndication &amp; Financial Support</strong><span>Loan syndication services and financial support to help businesses access working capital and term funding solutions.</span></div>
+    </div>
+    <div class="svc-cta"><div class="svc-cta-text"><strong>Ready to take your business to the next level?</strong><p>Our advisory team offers a complimentary initial consultation.</p></div><button class="btn-primary" onclick="closeService();showMain();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100)">Speak to an Expert <i class="fas fa-arrow-right"></i></button></div>
+  </div>
+
+</div><!-- /svc-detail -->
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── Knowledge Bank tabs
+function kbSwitch(id, btn) {
+  document.querySelectorAll('.kb-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.kb-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('kb-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);} });
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+// ── Nav scroll tint
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.borderBottomColor=window.scrollY>40?'rgba(184,151,58,0.22)':'rgba(184,151,58,0.12)';
+});
+
+// ── Show/hide main vs detail
+function showMain(){
+  document.getElementById('main-content').style.display='block';
+  document.getElementById('svc-detail').style.display='none';
+  document.querySelector('nav').style.paddingTop='';
+}
+
+function openService(id){
+  // Hide all svc pages
+  document.querySelectorAll('.svc-page').forEach(p=>p.classList.remove('active'));
+  const page = document.getElementById('svc-'+id);
+  if(!page) return;
+  page.classList.add('active');
+  // Swap
+  document.getElementById('main-content').style.display='none';document.getElementById('svc-detail').style.display='block';
+  document.getElementById('svc-detail').style.display='block';
+  window.scrollTo(0,0);
+}
+
+function closeService(){
+  document.getElementById('svc-detail').style.display='none';
+  document.getElementById('main-content').style.display='block';
+  document.getElementById('services').scrollIntoView({behavior:'smooth'});
+}
+
+// ── Form submit
+
+
+// ── Safe Form Submit Handler
+const formBtn = document.querySelector('.form-submit');
+if(formBtn){
+  formBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    alert("Form submission placeholder — backend integration required.");
+  });
+}
+</script>
+
+<style>
+.calc-input{color:#ffffff !important;
+  width:100%;
+  margin-bottom:15px;
+  padding:14px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.15);
+  color:white;
+  font-size:14px;
+}
+.calc-output{color:#ffffff !important;
+  margin-top:20px;
+  color:white;
+  line-height:1.8;
+}
+.calc-body{display:none}
+.calc-body.active{display:block}
+.calc-tab.active{
+  border-color:#b8973a;
+  color:#b8973a;
+}
+</style>
+
+<!-- CALCULATOR DASHBOARD -->
+<div id="svc-calcdashboard" class="svc-page" style="background:#0e0e0e;color:#ffffff;padding:40px 8vw 80px 8vw;"padding:100px 8vw;background:#0e0e0e;color:white">
+
+<h2 style="font-family:'Cormorant Garamond',serif;font-size:42px;margin-bottom:40px">
+Smart <span style="color:#b8973a">Calculators</span>
+</h2>
+
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px">
+<button class="btn-outline calc-tab active" onclick="showCalc('gst',this)">GST</button>
+<button class="btn-outline calc-tab" onclick="showCalc('emi',this)">EMI</button>
+<button class="btn-outline calc-tab" onclick="showCalc('tax',this)">Income Tax</button>
+</div>
+
+<div style="background:rgba(255,255,255,0.04);padding:40px;border:1px solid rgba(184,151,58,0.15);max-width:700px">
+
+<div class="calc-body active" id="calc-gst">
+<input type="number" id="gst-amount" placeholder="Enter Amount" class="calc-input">
+<select id="gst-rate" class="calc-input">
+<option value="5">5%</option>
+<option value="12">12%</option>
+<option value="18" selected>18%</option>
+<option value="28">28%</option>
+</select>
+<button class="btn-primary" onclick="calcGST()">Calculate</button>
+<div id="gst-output" class="calc-output"></div>
+</div>
+
+<div class="calc-body" id="calc-emi">
+<input type="number" id="emi-loan" placeholder="Loan Amount" class="calc-input">
+<input type="number" id="emi-rate" placeholder="Interest Rate (%)" class="calc-input">
+<input type="number" id="emi-years" placeholder="Tenure (Years)" class="calc-input">
+<button class="btn-primary" onclick="calcEMI()">Calculate EMI</button>
+<div id="emi-output" class="calc-output"></div>
+</div>
+
+<div class="calc-body" id="calc-tax">
+<input type="number" id="tax-income" placeholder="Annual Income" class="calc-input">
+<button class="btn-primary" onclick="calcTax()">Calculate</button>
+<div id="tax-output" class="calc-output"></div>
+</div>
+
+</div>
+</div></div>
+
+<script>
+function showCalc(id,btn){
+document.querySelectorAll('.calc-body').forEach(c=>c.classList.remove('active'));
+document.querySelectorAll('.calc-tab').forEach(t=>t.classList.remove('active'));
+document.getElementById('calc-'+id).classList.add('active');
+btn.classList.add('active');
+}
+
+function calcGST(){
+const amount=parseFloat(document.getElementById('gst-amount').value);
+const rate=parseFloat(document.getElementById('gst-rate').value);
+if(!amount)return;
+const gst=amount*rate/100;
+document.getElementById('gst-output').innerHTML=
+`GST: ₹${gst.toFixed(2)}<br>Total: ₹${(amount+gst).toFixed(2)}`;
+}
+
+function calcEMI(){
+const P=parseFloat(document.getElementById('emi-loan').value);
+const R=parseFloat(document.getElementById('emi-rate').value)/1200;
+const N=parseFloat(document.getElementById('emi-years').value)*12;
+if(!P||!R||!N)return;
+const EMI=P*R*Math.pow(1+R,N)/(Math.pow(1+R,N)-1);
+document.getElementById('emi-output').innerHTML=`Monthly EMI: ₹${EMI.toFixed(2)}`;
+}
+
+function calcTax(){
+const income=parseFloat(document.getElementById('tax-income').value);
+let tax=0;
+if(income>500000){tax=(income-500000)*0.2;}
+document.getElementById('tax-output').innerHTML=`Estimated Tax: ₹${tax.toFixed(2)}`;
+}
+</script>
+
+
+<script>
+
+
+function calculateEmbeddedGST(){
+  const amount = parseFloat(document.getElementById('gst-amount').value);
+  const rate = parseFloat(document.getElementById('gst-rate').value);
+  if(!amount || amount <= 0){
+    alert("Enter valid amount");
+    return;
+  }
+  const gst = amount * rate / 100;
+  const total = amount + gst;
+  const cgst = gst / 2;
+  const sgst = gst / 2;
+
+  document.getElementById('gst-result').innerHTML =
+    "GST: ₹" + gst.toFixed(2) + "<br>" +
+    "CGST: ₹" + cgst.toFixed(2) + "<br>" +
+    "SGST: ₹" + sgst.toFixed(2) + "<br>" +
+    "<strong>Total: ₹" + total.toFixed(2) + "</strong>";
+}
+</script>
+
+
+<!-- GST MODAL POPUP -->
+<div id="gstModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;">
+  <div style="background:#0e0e0e;width:90%;max-width:600px;padding:40px;border:1px solid rgba(184,151,58,0.3);position:relative;color:#ffffff;">
+    
+    <button onclick="closeGSTModal()" style="position:absolute;top:15px;right:15px;background:none;border:none;color:#ffffff;font-size:20px;cursor:pointer;">×</button>
+    
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:30px;margin-bottom:25px;">
+      GST <span style="color:#b8973a">Calculator</span>
+    </h3>
+
+    <input type="number" id="gst-amount" placeholder="Enter Amount" 
+      style="width:100%;padding:14px;margin-bottom:15px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);color:#fff;">
+
+    <select id="gst-rate" 
+      style="width:100%;padding:14px;margin-bottom:15px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);color:#fff;">
+      <option value="5">5%</option>
+      <option value="12">12%</option>
+      <option value="18" selected>18%</option>
+      <option value="28">28%</option>
+    </select>
+
+    <button class="btn-primary" onclick="calculateGSTPopup()">Calculate</button>
+
+    <div id="gst-result" style="margin-top:20px;line-height:1.8;"></div>
+
+  </div>
+</div>
+
+
+<script>
+function openGSTModal(){
+  document.getElementById('gstModal').style.display = "flex";
+}
+
+function closeGSTModal(){
+  document.getElementById('gstModal').style.display = "none";
+}
+
+function calculateGSTPopup(){
+  const amount = parseFloat(document.getElementById('gst-amount').value);
+  const rate = parseFloat(document.getElementById('gst-rate').value);
+  if(!amount || amount <= 0){
+    alert("Enter valid amount");
+    return;
+  }
+  const gst = amount * rate / 100;
+  const total = amount + gst;
+  const cgst = gst / 2;
+  const sgst = gst / 2;
+
+  document.getElementById('gst-result').innerHTML =
+    "GST: ₹" + gst.toFixed(2) + "<br>" +
+    "CGST: ₹" + cgst.toFixed(2) + "<br>" +
+    "SGST: ₹" + sgst.toFixed(2) + "<br>" +
+    "<strong>Total: ₹" + total.toFixed(2) + "</strong>";
+}
+</script>
+
+
+<script>
+function openService(id){
+  const detail = document.getElementById('svc-detail');
+  const pages = detail.querySelectorAll('.svc-page');
+  pages.forEach(p=>p.classList.remove('active'));
+  const target = detail.querySelector('#svc-' + id);
+  if(target){ target.classList.add('active'); }
+  detail.style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+
+function closeServiceModal(){
+  document.getElementById('svc-detail').style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+window.addEventListener('click', function(e){
+  const detail = document.getElementById('svc-detail');
+  if(e.target === detail){
+    closeServiceModal();
+  }
+});
+</script>
+
+</body>
+</html>
